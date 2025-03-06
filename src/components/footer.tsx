@@ -74,7 +74,7 @@ export default function Footer() {
     <div className="w-full bg-gray-100 text-black mt-20 font-Montserrat">
       <div className="flex sm:flex-row flex-col justify-between items-start sm:p-6 p-3">
         <div className="sm:w-1/3 font-Montserrat" data-aos="fade-up">
-          <img src={logo} alt="logo" className="w-40 sm-mx-0 mx-auto" />
+          <img src={logo} alt="logo" className="w-40 sm:mx-0 mx-auto" />
           <div className="flex items-center">
             <p className="mt-5">
               Empowering education and transforming lives through scholarships,

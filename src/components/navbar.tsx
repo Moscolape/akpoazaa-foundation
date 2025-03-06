@@ -63,7 +63,7 @@ export default function NavLinks() {
   const logoSize = windowWidth < 640 ? 60 : 80;
 
   return (
-    <nav className="flex justify-between items-center sm:px-4 pl-2 py-2 fixed w-full top-0 z-50" style={{ backgroundColor: "rgba(255, 255, 255, 0.5)", backdropFilter: "blur(10px)" }}
+    <nav className="flex justify-between items-center sm:px-4 pl-2 py-2 fixed w-full top-0 z-40" style={{ backgroundColor: "rgba(255, 255, 255, 0.5)", backdropFilter: "blur(10px)" }}
 >
       <Link to="/" className="logo">
         <img
@@ -123,7 +123,7 @@ export default function NavLinks() {
         initial={{ x: "100%" }}
         animate={{ x: isMenuOpen ? 0 : "100%" }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="fixed inset-0 bg-white bg-opacity-90 z-50 flex flex-col items-center justify-center text-black"
+        className="fixed w-screen h-screen inset-0 bg-opacity-90 bg-white z-50 flex flex-col items-center justify-center text-black"
       >
         <button
           onClick={() => setMenuOpen(false)}
