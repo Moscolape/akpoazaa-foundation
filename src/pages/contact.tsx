@@ -34,7 +34,7 @@ const Contact: React.FC = () => {
     setStatus("Sending...");
     try {
       const response = await axios.post<{ message: string }>(
-        "http://localhost:8000/api/contact",
+        "https://akpoazaa-foundation-backend.onrender.com/api/contact",
         data
       );
 
