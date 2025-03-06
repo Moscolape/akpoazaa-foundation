@@ -34,7 +34,7 @@ const Contact: React.FC = () => {
     setStatus("Sending...");
     try {
       const response = await axios.post<{ message: string }>(
-        "http://localhost:5000/api/contact",
+        "http://localhost:8000/api/contact",
         data
       );
 
