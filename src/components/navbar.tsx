@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react"; // Importing icons
+import { logo } from "../constants/assets";
 
 const links = [
   { name: "About", href: "/about" },
@@ -62,10 +63,11 @@ export default function NavLinks() {
   const logoSize = windowWidth < 640 ? 60 : 80;
 
   return (
-    <nav className="flex justify-between items-center sm:px-4 pl-2 py-2 fixed w-full top-0 z-50 bg-white shadow-md">
+    <nav className="flex justify-between items-center sm:px-4 pl-2 py-2 fixed w-full top-0 z-50" style={{ backgroundColor: "rgba(255, 255, 255, 0.5)", backdropFilter: "blur(10px)" }}
+>
       <Link to="/" className="logo">
         <img
-          src="/Akpoazaa Foundation Logo.png"
+          src={logo}
           alt="My Logo"
           width={logoSize}
           height={logoSize}

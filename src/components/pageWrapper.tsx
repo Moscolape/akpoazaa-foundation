@@ -1,3 +1,4 @@
+import Footer from "./footer";
 import NavLinks from "./navbar";
 import { ReactNode } from "react";
 
@@ -10,6 +11,7 @@ const PageWrapper: React.FC<PageWrapperProps> = ({ children }) => {
     <div className="w-full h-full custom-scrollbar-example">
       <NavLinks />
       <div className="mt-15">{children}</div>
+      <Footer />
     </div>
   );
 };
