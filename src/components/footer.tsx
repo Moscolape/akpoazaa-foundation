@@ -51,19 +51,19 @@ const quickLinks = [
 ];
 
 const policyLinks = [
-    {
-      text: "Terms & Conditions",
-      href: "/terms-and-conditions",
-    },
-    {
-      text: "Privacy Policy",
-      href: "/privacy-policy",
-    },
-    {
-      text: "Donation Policy",
-      href: "/donation-policy",
-    }
-  ];
+  {
+    text: "Terms & Conditions",
+    href: "/terms-and-conditions",
+  },
+  {
+    text: "Privacy Policy",
+    href: "/privacy-policy",
+  },
+  {
+    text: "Donation Policy",
+    href: "/donation-policy",
+  },
+];
 
 export default function Footer() {
   useEffect(() => {
@@ -77,8 +77,8 @@ export default function Footer() {
           <img src={logo} alt="logo" className="w-40 sm:mx-0 mx-auto" />
           <div className="flex items-center">
             <p className="mt-5">
-              Empowering education and transforming lives through scholarships,
-              mentorship, and community support.
+              Empowering education and transforming lives through scholarships
+              and community support.
             </p>
           </div>
           <div className="text-h6 flex mt-5">
@@ -96,7 +96,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="sm:w-2/5 sm:mt-0 mt-10 flex sm:flex-row flex-col justify-between">
-          <div className="sm:w-1/2" data-aos="fade-down">
+          <div className="sm:w-1/2" data-aos="fade-up">
             <h1 className="text-lg text-[#be202f] font-bold">QUICK LINKS</h1>
             <br />
             <div className="flex flex-col">
@@ -112,7 +112,9 @@ export default function Footer() {
             </div>
           </div>
           <div className="sm:w-1/2 sm:mt-0 mt-10" data-aos="fade-up">
-            <h1 className="text-lg text-[#be202f] font-bold">LEGAL & POLICIES</h1>
+            <h1 className="text-lg text-[#be202f] font-bold">
+              LEGAL & POLICIES
+            </h1>
             <br />
             <div className="flex flex-col">
               {policyLinks.map((link, index) => (

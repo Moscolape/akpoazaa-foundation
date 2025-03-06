@@ -127,7 +127,7 @@ const Contact: React.FC = () => {
         <MapComponent
           latitude={6.1329419}
           longitude={6.7923994}
-          locationName="Awka, Nigeria"
+          locationName="Suite B6, Millenium Plaza by Total Energies Filling Station, Aroma Junction, Awka, Nigeria"
         />
       </div>
 
@@ -147,7 +147,7 @@ const Contact: React.FC = () => {
           </div>
         </div>
         <div
-          className="sm:w-[30%] w-full flex sm:justify-center items-center my-3 sm:my-0"
+          className="sm:w-[30%] w-full flex sm:justify-center items-center my-7 sm:my-0"
           data-aos="fade-down"
         >
           <FaPhoneAlt className="text-[#a6cc39] text-4xl" />

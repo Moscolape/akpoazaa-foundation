@@ -14,6 +14,10 @@ const Contact = lazy(() => import("./pages/contact"));
 const Gallery = lazy(() => import("./pages/gallery"));
 const FAQs = lazy(() => import("./pages/faqs"));
 
+const TermsAndConditions = lazy(() => import("./pages/terms-and-conditions"));
+const PrivacyPolicy = lazy(() => import("./pages/privacy-policy"));
+const DonationPolicy = lazy(() => import("./pages/donation-policy"));
+
 
 function App() {
   return (
@@ -36,6 +40,10 @@ function App() {
           <Route path="/events" element={<Events />} />
           <Route path="/frequently-asked-questions" element={<FAQs />} />
           <Route path="/get-involved" element={<GetInvolved />} />
+
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />}/>
+          <Route path="/privacy-policy" element={<PrivacyPolicy />}/>
+          <Route path="/donation-policy" element={<DonationPolicy />}/>
         </Routes>
       </Router>
     </Suspense>
