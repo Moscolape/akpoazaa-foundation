@@ -82,10 +82,10 @@ const FAQs = () => {
               data-aos="fade-up"
             >
               <button
-                className="w-full flex justify-between items-center text-lg font-medium p-3 focus:outline-none cursor-pointer"
+                className="w-full flex justify-between sm:text-lg items-center font-medium p-3 focus:outline-none cursor-pointer"
                 onClick={() => toggleFAQ(index)}
               >
-                {faq.question}
+                <span className="text-left">{faq.question}</span>
                 {openIndexes.includes(index) ? (
                   <FaMinus className="text-red-500" />
                 ) : (
@@ -93,7 +93,7 @@ const FAQs = () => {
                 )}
               </button>
               {openIndexes.includes(index) && (
-                <p className="text-gray-700 p-3 bg-gray-100 rounded-md animate-fadeDownFast">
+                <p className="text-gray-700 p-3 bg-gray-100 text-sm sm:text-[1rem] rounded-md animate-fadeDownFast">
                   {faq.answer}
                 </p>
               )}
