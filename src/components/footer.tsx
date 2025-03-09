@@ -7,11 +7,11 @@ import { logo } from "../constants/assets";
 const socialMediaLinks = [
   {
     icon: <FaFacebook />,
-    href: "https://www.facebook.com/share/18LvqCJULT/",
+    href: "https://www.facebook.com/share/1BDvdoZf6Y/",
   },
   {
     icon: <FaInstagram />,
-    href: "https://www.instagram.com/officialbestbraincontest?igsh=MWFqZDJpZHV5MTc4Yw==",
+    href: "https://www.instagram.com/akpoazaafoundation?igsh=eXN3cWJlbW5sMGt0",
   },
 ];
 
