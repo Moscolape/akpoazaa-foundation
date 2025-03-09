@@ -164,7 +164,7 @@ const Contact: React.FC = () => {
           <AiOutlineMail className="text-[#02a69d] text-4xl" />
           <div className="ml-5">
             <h3 className="font-bold">EMAIL:</h3>
-            <p>akpoazaafoundation@gmail.com</p>
+            <p>akpoazaafoundation1@gmail.com</p>
           </div>
         </div>
       </div>
