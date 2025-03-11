@@ -137,7 +137,7 @@ export default function Footer() {
             &copy; 2025 Akpoazaa Foundation. All rights reserved.
           </p>
           <p>
-            Developed by{" "}
+            Designed and developed by{" "}
             <b>
               <a
                 href="https://chukwunenye-moses-portfolio.vercel.app/portfolio"
