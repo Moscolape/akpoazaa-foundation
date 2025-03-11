@@ -38,6 +38,7 @@ import boss from "../assets/boss.jpeg";
 import partner1 from "../assets/partner1.png";
 import partner2 from "../assets/partner2.png";
 import partner3 from "../assets/partner3.jpeg";
+import CEO from "../assets/CEO.png";
 
 
 export {
@@ -80,5 +81,6 @@ export {
   boss,
   partner1,
   partner2,
-  partner3
+  partner3,
+  CEO
 };

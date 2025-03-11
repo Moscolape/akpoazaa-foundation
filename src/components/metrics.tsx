@@ -21,7 +21,7 @@ const Metrics = () => {
       });
 
   return (
-    <div ref={ref} className="w-full py-12 text-[#be202f] mt-5">
+    <div ref={ref} className="w-full py-12 text-[#be202f] mt-5 font-Montserrat">
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
         {metrics.map((metric, index) => (
           <div key={index} className="flex flex-col items-center">
@@ -35,7 +35,7 @@ const Metrics = () => {
                 className="text-4xl font-bold"
               />
             )}
-            <p className="mt-2 text-lg">{metric.label}</p>
+            <p className="mt-2">{metric.label}</p>
           </div>
         ))}
       </div>

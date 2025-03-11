@@ -27,7 +27,6 @@ import {
 import { AnimatePresence, motion } from "framer-motion";
 import ImageSlider from "../components/image-slider";
 import { Link } from "react-router-dom";
-import Metrics from "../components/metrics";
 import Testimonials from "../components/testimonials";
 import CTA from "../components/cta";
 import Partners from "../components/partners";
@@ -111,7 +110,6 @@ const Home = () => {
             <span className="font-bold text-[#be202f]"> Read more...</span>
           </Link>
         </p>
-        <Metrics />
       </div>
       <div
         className="font-Montserrat sm:w-[80%] mx-auto p-2 sm:mt-10 mt-5"
