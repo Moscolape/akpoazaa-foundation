@@ -82,12 +82,12 @@ const Home = () => {
         </AnimatePresence>
 
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="absolute inset-0 bg-black opacity-30"></div>
 
         {/* Content */}
         <div className="relative z-10 text-center px-6">
           {/* Fixed Text */}
-          <h1 className="text-2xl md:text-8xl font-Script animate-fadeDown">
+          <h1 className="text-3xl md:text-8xl font-Script animate-fadeDown">
             "Just a Touch for God and Humanity"
           </h1>
         </div>
@@ -99,7 +99,7 @@ const Home = () => {
         <img
           src={boss}
           alt="ceo"
-          className="sm:w-96 sm:h-96 w-60 h-60 mx-auto my-5 rounded-full"
+          className="sm:w-96 sm:h-96 w-72 h-72 mx-auto my-5 rounded-full"
         />
         <p className="p-2 sm:w-4/5 mx-auto" data-aos="fade-down">
           <span className="text-[#be202f] font-bold">Akpoazaa Foundation</span>{" "}
