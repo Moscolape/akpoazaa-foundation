@@ -41,7 +41,7 @@ const Events = () => {
   return (
     <PageWrapper>
       <div className="pt-12 px-6 max-w-6xl mx-auto sm:text-center font-Montserrat">
-        <h1 className="sm:text-4xl text-3xl font-bold mb-6" data-aos="fade-down">
+        <h1 className="text-3xl sm:text-5xl font-Script font-bold mb-6" data-aos="fade-down">
           Events & Engagements
         </h1>
         <p className="text-lg text-gray-700 font-Montserrat mb-10" data-aos="fade-up">

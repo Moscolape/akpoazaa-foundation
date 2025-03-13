@@ -10,11 +10,10 @@ const Donate = () => {
   }, []);
 
   const [donationAmount, setDonationAmount] = useState<number>(5000); // Default donation amount
-  const [donationType, setDonationType] = useState<"one-time" | "recurring">("one-time");
 
   // PayStack Payment Handler (Replace with actual API integration)
   const handleDonate = () => {
-    alert(`Proceeding to donate ${donationAmount} as a ${donationType} donation.`);
+    alert(`Proceeding to donate ${donationAmount}`);
     // Here, you would integrate with PayStack or another payment processor
   };
 
@@ -49,26 +48,6 @@ const Donate = () => {
           ))}
         </div>
 
-        {/* One-time & Recurring Donations */}
-        <div className="mb-8 flex justify-center gap-4">
-          <button
-            className={`px-6 py-2 rounded-lg font-semibold transition ${
-              donationType === "one-time" ? "bg-[#be202f] text-white" : "bg-gray-200 text-gray-700"
-            }`}
-            onClick={() => setDonationType("one-time")}
-          >
-            One-Time
-          </button>
-          <button
-            className={`px-6 py-2 rounded-lg font-semibold transition ${
-              donationType === "recurring" ? "bg-[#be202f] text-white" : "bg-gray-200 text-gray-700"
-            }`}
-            onClick={() => setDonationType("recurring")}
-          >
-            Recurring
-          </button>
-        </div>
-
         {/* Custom Donation Input */}
         <div className="mb-8">
           <label className="block text-gray-700 font-semibold mb-2">Enter Custom Amount (₦)</label>
@@ -100,7 +79,7 @@ const Donate = () => {
           <h2 className="sm:text-2xl text-lg font-bold text-[#be202f] mb-4">Where Your Donations Go</h2>
           <p className="text-gray-700">
             We ensure transparency and accountability in fund allocation.  
-            View our annual impact reports to see how your donations are changing lives.
+            View our biannual impact reports to see how your donations are changing lives.
           </p>
           <Link to="/impact-reports" className="mt-4 inline-block bg-[#be202f] text-white px-6 py-2 rounded-md shadow-lg hover:bg-[#9c1721] transition">
             View Impact Reports

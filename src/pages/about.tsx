@@ -1,7 +1,7 @@
 import PageWrapper from "../components/pageWrapper";
 import { useEffect } from "react";
 import initializeAOS from "../utils/aos-init";
-import { CEO } from "../constants/assets";
+import { CEO, IT } from "../constants/assets";
 import Metrics from "../components/metrics";
 
 const About = () => {
@@ -11,9 +11,9 @@ const About = () => {
 
   return (
     <PageWrapper>
-      <section className="pt-12 px-6 max-w-4xl mx-auto">
+      <section className="pt-12 sm:px-6 px-3 max-w-4xl mx-auto">
         <h1
-          className="text-[#071125] text-3xl sm:text-5xl text-center font-semibold font-Script sm:mt-0 -mt-12"
+          className="text-[#071125] text-3xl sm:text-5xl font-Script text-center font-bold sm:mt-0 -mt-12"
           data-aos="flip-down"
         >
           About Us
@@ -27,7 +27,9 @@ const About = () => {
         </p>
 
         <div className="mb-15 font-Montserrat" data-aos="fade-up">
-          <h2 className="text-xl sm:text-2xl font-semibold mb-4">Our History</h2>
+          <h2 className="text-xl sm:text-2xl font-semibold mb-4">
+            Our History
+          </h2>
           <p className="text-gray-700">
             <em>
               "Akpoazaa Foundation is my birth child. I started it over 15 years
@@ -71,7 +73,9 @@ const About = () => {
           </p>
         </div>
         <div className="font-Montserrat" data-aos="fade-up">
-          <h2 className="text-xl sm:text-2xl font-semibold mb-4">Our Mission</h2>
+          <h2 className="text-xl sm:text-2xl font-semibold mb-4">
+            Our Mission
+          </h2>
           <p>
             At <b>Akpoazaa Foundation</b>, our mission is to empower individuals
             and communities through education, skill acquisition, and
@@ -120,14 +124,42 @@ const About = () => {
         className="flex flex-col justify-center items-center text-center font-Montserrat"
         data-aos="fade-up"
       >
-        <img src={CEO} alt="" className="w-100 sm:h-100 h-80" />
+        <img src={CEO} alt="" className="w-100 h-100" />
         <h3 className="text-xl font-semibold mt-10">
           Dr. Frank Odinaka Igbojindu
         </h3>
         <p className="text-gray-600">(Dip Acc, BSc Acc, MSc Acc, PhD Acc)</p>
         <p className="text-gray-600">
-          CEO, Akpoazaa Foundation | GMD, Akpoazaa Group
+          CEO, <b>Akpoazaa Foundation</b> | GMD, <b>Akpoazaa Group</b>
         </p>
+      </div>
+      <div
+        className="mb-15 font-Montserrat max-w-4xl mx-auto sm:px-6 px-3 py-12"
+        data-aos="fade-up"
+      >
+        <h2 className="text-xl sm:text-2xl font-semibold mb-4">Our Team</h2>
+        <p>
+          Our team is a dynamic one. We have a lot of amazing adhoc staff that
+          we work with on a program/event basis. However, the charismatic
+          individuals below have formed a backbone structure upon which Akpoazaa
+          Foundation has successfully carried out its operations because of how
+          they discharge their job responsibilities effectively and efficiently.
+        </p>
+        <br />
+        <div>
+          <div
+            className="flex flex-col justify-center items-center text-center font-Montserrat"
+            data-aos="fade-up"
+          >
+            <img src={IT} alt="IT" className="w-60 h-75" />
+            <h3 className="text-xl font-semibold mt-10">
+              Engr. Chukwunenye Moses Chidiebere
+            </h3>
+            <p className="text-gray-600">
+              Web Developer, <b>Akpoazaa Foundation</b> | IT Manager, <b>Akpoazaa Group</b>
+            </p>
+          </div>
+        </div>
       </div>
     </PageWrapper>
   );

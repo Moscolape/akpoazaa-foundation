@@ -11,7 +11,7 @@ const GetInvolved = () => {
   return (
     <PageWrapper>
       <div className="pt-12 sm:px-6 sm:w-4/5 w-full mx-auto text-center font-Montserrat">
-        <h1 className="sm:text-4xl text-2xl font-bold mb-6" data-aos="fade-down">
+        <h1 className="text-3xl sm:text-5xl font-Script font-bold mb-6" data-aos="fade-down">
           Get Involved with Akpoazaa Foundation
         </h1>
         <p className="text-lg text-gray-700 font-Montserrat mb-10" data-aos="fade-up">

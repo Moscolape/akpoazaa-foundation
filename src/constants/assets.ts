@@ -40,6 +40,7 @@ import partner2 from "../assets/partner2.png";
 import partner3 from "../assets/partner3.jpeg";
 import CEO from "../assets/CEO.png";
 import paystack from "../assets/paystack-logo.png";
+import IT from "../assets/IT-removebg-preview.png";
 
 
 export {
@@ -84,5 +85,6 @@ export {
   partner2,
   partner3,
   CEO,
-  paystack
+  paystack,
+  IT
 };

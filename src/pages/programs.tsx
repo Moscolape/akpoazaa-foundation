@@ -34,7 +34,7 @@ const Programs = () => {
   return (
     <PageWrapper>
       <div className="pt-12 px-6 max-w-6xl mx-auto sm:text-center font-Montserrat">
-        <h1 className="sm:text-4xl text-3xl font-bold mb-6" data-aos="fade-down">
+        <h1 className="text-3xl sm:text-5xl font-Script font-bold mb-6" data-aos="fade-down">
           Our Programs & Initiatives
         </h1>
         <p className="text-lg text-gray-700 font-Montserrat mb-10" data-aos="fade-up">
@@ -46,7 +46,7 @@ const Programs = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {programs.map((program, index) => (
             <div key={index} className="sm:p-6" data-aos="fade-up">
-              <h2 className="sm:text-2xl text-lg font-bold text-[#be202f] mb-3">{program.title}</h2>
+              <h2 className="sm:text-2xl text-lg font-bold sm:text-[#be202f] mb-3">{program.title}</h2>
               <p className="text-gray-700 mb-4">{program.description}</p>
               <Link to={program.link} className="text-[#be202f] font-semibold hover:underline">
                 Learn More →
