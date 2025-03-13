@@ -10,8 +10,8 @@ interface Metric {
 const metrics: Metric[] = [
   { label: "Beneficiaries", value: 200, suffix: "+" },
   { label: "Scholarships", value: 100, suffix: "+" },
-  { label: "Community Projects", value: 5, suffix: "+" },
-  { label: "Partners", value: 10, suffix: "+" },
+  { label: "Programs", value: 30, suffix: "+" },
+  { label: "Partners", value: 7, suffix: "+" },
 ];
 
 const Metrics = () => {

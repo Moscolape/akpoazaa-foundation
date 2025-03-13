@@ -28,7 +28,7 @@ const faqs: FAQItem[] = [
   {
     question: "How do I apply for a scholarship?",
     answer:
-      "Check out the scholarship section of the 'Programs' page, fill out the online application form, and submit the required documents before the deadline.",
+      "Check out the educational support section of the 'Programs' page, fill out the online application form, and submit the required documents before the deadline.",
   },
   {
     question: "When will I know if my scholarship application was successful?",

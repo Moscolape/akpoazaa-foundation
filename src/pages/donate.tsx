@@ -22,7 +22,7 @@ const Donate = () => {
     <PageWrapper>
       <div className="pt-12 px-6 max-w-4xl mx-auto text-center font-Montserrat">
         <h1 className="sm:text-4xl text-2xl font-bold text-[#be202f] mb-6" data-aos="fade-down">
-          Support the Akpoazaa Foundation
+          Support Akpoazaa Foundation
         </h1>
         <p className="text-lg text-gray-700 font-Montserrat mb-10" data-aos="fade-up">
           Your generous contribution helps us provide scholarships, skill training,  
@@ -84,7 +84,7 @@ const Donate = () => {
         {/* Donate Button */}
         <button
           onClick={handleDonate}
-          className="bg-[#be202f] text-white px-6 py-3 rounded-lg font-bold shadow-lg hover:bg-[#9c1721] transition"
+          className="bg-[#be202f] text-white px-6 py-3 rounded-lg font-bold shadow-lg hover:bg-[#9c1721] transition cursor-pointer"
         >
           Donate Now
         </button>
@@ -92,7 +92,7 @@ const Donate = () => {
         {/* Payment Options (PayStack Placeholder) */}
         <div className="mt-6">
           <p className="text-gray-700">Secure payments powered by:</p>
-          <img src={paystack} alt="PayStack" className="w-40 mx-auto mt-2" />
+          <img src={paystack} alt="PayStack" className="w-20 mx-auto mt-2" />
         </div>
 
         {/* Transparency & Impact Reports */}
