@@ -18,13 +18,15 @@ const TermsAndConditions = lazy(() => import("./pages/terms-and-conditions"));
 const PrivacyPolicy = lazy(() => import("./pages/privacy-policy"));
 const DonationPolicy = lazy(() => import("./pages/donation-policy"));
 
+const EducationalSupport = lazy(() => import("./pages/educational-support"));
+const CommunityOutreach = lazy(() => import("./pages/community-outreach"));
 
 function App() {
   return (
     <Suspense
       fallback={
         <div className="flex items-center justify-center h-screen">
-          <div className="w-8 h-8 border-4 border-[#071125] border-t-transparent rounded-full animate-spin"></div>
+          <div className="w-8 h-8 border-4 border-[#be202f] border-t-transparent rounded-full animate-spin"></div>
         </div>
       }
     >
@@ -41,9 +43,15 @@ function App() {
           <Route path="/frequently-asked-questions" element={<FAQs />} />
           <Route path="/get-involved" element={<GetInvolved />} />
 
-          <Route path="/terms-and-conditions" element={<TermsAndConditions />}/>
-          <Route path="/privacy-policy" element={<PrivacyPolicy />}/>
-          <Route path="/donation-policy" element={<DonationPolicy />}/>
+          <Route
+            path="/terms-and-conditions"
+            element={<TermsAndConditions />}
+          />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/donation-policy" element={<DonationPolicy />} />
+
+          <Route path="/educational-support" element={<EducationalSupport />} />
+          <Route path="/community-outreach" element={<CommunityOutreach />} />
         </Routes>
       </Router>
     </Suspense>

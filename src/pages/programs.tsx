@@ -20,7 +20,7 @@ const programs = [
     link: "/community-outreach",
   },
   {
-    title: "Upcoming & Ongoing Programs",
+    title: "Upcoming Programs",
     description: "Stay updated on our active projects and upcoming initiatives aimed at community betterment.",
     link: "/upcoming-programs",
   },

@@ -1,4 +1,4 @@
-import { FaFacebook, FaInstagram } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import initializeAOS from "../utils/aos-init";
@@ -12,6 +12,10 @@ const socialMediaLinks = [
   {
     icon: <FaInstagram />,
     href: "https://www.instagram.com/akpoazaafoundation?igsh=eXN3cWJlbW5sMGt0",
+  },
+  {
+    icon: <FaYoutube />,
+    href: "https://www.youtube.com/@AkpoazaaFoundation",
   },
 ];
 
