@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import PageWrapper from "../components/pageWrapper";
-import initializeAOS from "../utils/aos-init";
+import PageWrapper from "../../components/pageWrapper";
+import initializeAOS from "../../utils/aos-init";
 import {
   found1, found2, found3, found4, found5, found6, found7, found8, found9, found10,
   found11, found12, found13, found14, found15, found16, found17, found18, found20,
   found21, found22, found23, found24, found25, found26, found27, found28, found29, found30,
   found31, found32, boss, obi1, obi2
-} from "../constants/assets";
+} from "../../constants/assets";
 
 const Gallery = () => {
   useEffect(() => {

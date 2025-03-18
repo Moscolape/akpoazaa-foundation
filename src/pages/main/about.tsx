@@ -1,8 +1,8 @@
-import PageWrapper from "../components/pageWrapper";
+import PageWrapper from "../../components/pageWrapper";
 import { useEffect } from "react";
-import initializeAOS from "../utils/aos-init";
-import { CEO, IT } from "../constants/assets";
-import Metrics from "../components/metrics";
+import initializeAOS from "../../utils/aos-init";
+import { CEO, IT } from "../../constants/assets";
+import Metrics from "../../components/metrics";
 
 const About = () => {
   useEffect(() => {

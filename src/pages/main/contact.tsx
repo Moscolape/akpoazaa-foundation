@@ -1,13 +1,13 @@
-import PageWrapper from "../components/pageWrapper";
+import PageWrapper from "../../components/pageWrapper";
 import { useEffect, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
 
-import initializeAOS from "../utils/aos-init";
+import initializeAOS from "../../utils/aos-init";
 import axios from "axios";
 
-import MapComponent from "../components/map";
+import MapComponent from "../../components/map";
 
 // Define Form Data Type
 interface ContactFormData {

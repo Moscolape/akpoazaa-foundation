@@ -1,6 +1,6 @@
-import PageWrapper from "../components/pageWrapper";
+import PageWrapper from "../../components/pageWrapper";
 import { useEffect } from "react";
-import initializeAOS from "../utils/aos-init";
+import initializeAOS from "../../utils/aos-init";
 
 const PrivacyPolicy = () => {
   useEffect(() => {

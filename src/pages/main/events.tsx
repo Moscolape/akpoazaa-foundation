@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import PageWrapper from "../components/pageWrapper";
-import initializeAOS from "../utils/aos-init";
+import PageWrapper from "../../components/pageWrapper";
+import initializeAOS from "../../utils/aos-init";
 import { Link } from "react-router-dom";
 
 const upcomingEvents = [

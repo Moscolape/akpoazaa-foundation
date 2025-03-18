@@ -1,6 +1,6 @@
-import PageWrapper from "../components/pageWrapper";
+import PageWrapper from "../../components/pageWrapper";
 import { useEffect, useState } from "react";
-import initializeAOS from "../utils/aos-init";
+import initializeAOS from "../../utils/aos-init";
 import {
   boss,
   found10,
@@ -23,13 +23,13 @@ import {
   found9,
   obi1,
   obi2,
-} from "../constants/assets";
+} from "../../constants/assets";
 import { AnimatePresence, motion } from "framer-motion";
-import ImageSlider from "../components/image-slider";
+import ImageSlider from "../../components/image-slider";
 import { Link } from "react-router-dom";
-import Testimonials from "../components/testimonials";
-import CTA from "../components/cta";
-import Partners from "../components/partners";
+import Testimonials from "../../components/testimonials";
+import CTA from "../../components/cta";
+import Partners from "../../components/partners";
 
 const Home = () => {
   const [bgIndex, setBgIndex] = useState(0);

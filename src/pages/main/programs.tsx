@@ -1,28 +1,28 @@
 import { useEffect } from "react";
-import PageWrapper from "../components/pageWrapper";
-import initializeAOS from "../utils/aos-init";
+import PageWrapper from "../../components/pageWrapper";
+import initializeAOS from "../../utils/aos-init";
 import { Link } from "react-router-dom";
 
 const programs = [
   {
     title: "Educational Support",
     description: "We provide scholarships, school supplies, and financial aids to help students achieve their academic dreams.",
-    link: "/educational-support",
+    link: "/programs/educational-support",
   },
   {
     title: "Skill Development",
     description: "Empowering individuals through vocational training, technology education, and career readiness programs.",
-    link: "/skill-development",
+    link: "/programs/skill-development",
   },
   {
     title: "Community Outreach",
     description: "We donate books to libraries, provide free community classes, and execute key infrastructure projects.",
-    link: "/community-outreach",
+    link: "/programs/community-outreach",
   },
   {
     title: "Upcoming Programs",
     description: "Stay updated on our active projects and upcoming initiatives aimed at community betterment.",
-    link: "/upcoming-programs",
+    link: "/programs/upcoming-programs",
   },
 ];
 

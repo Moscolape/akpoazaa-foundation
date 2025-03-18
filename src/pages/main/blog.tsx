@@ -1,7 +1,7 @@
-import PageWrapper from "../components/pageWrapper";
+import PageWrapper from "../../components/pageWrapper";
 import { useEffect } from "react";
-import initializeAOS from "../utils/aos-init";
-import { notAvailableYet } from "../constants/assets";
+import initializeAOS from "../../utils/aos-init";
+import { notAvailableYet } from "../../constants/assets";
 
 const Blog = () => {
   useEffect(() => {

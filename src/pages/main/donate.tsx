@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import PageWrapper from "../components/pageWrapper";
-import initializeAOS from "../utils/aos-init";
+import PageWrapper from "../../components/pageWrapper";
+import initializeAOS from "../../utils/aos-init";
 import { Link } from "react-router-dom";
-import { paystack } from "../constants/assets";
+import { paystack } from "../../constants/assets";
 
 const Donate = () => {
   useEffect(() => {

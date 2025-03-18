@@ -3,23 +3,29 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./index.css";
 import "./App.css";
 
-const Home = lazy(() => import("./pages/home"));
-const About = lazy(() => import("./pages/about"));
-const Programs = lazy(() => import("./pages/programs"));
-const GetInvolved = lazy(() => import("./pages/get-involved"));
-const Donate = lazy(() => import("./pages/donate"));
-const Events = lazy(() => import("./pages/events"));
-const Blog = lazy(() => import("./pages/blog"));
-const Contact = lazy(() => import("./pages/contact"));
-const Gallery = lazy(() => import("./pages/gallery"));
-const FAQs = lazy(() => import("./pages/faqs"));
+const Home = lazy(() => import("./pages/main/home"));
+const About = lazy(() => import("./pages/main/about"));
+const Programs = lazy(() => import("./pages/main/programs"));
+const GetInvolved = lazy(() => import("./pages/main/get-involved"));
+const Donate = lazy(() => import("./pages/main/donate"));
+const Events = lazy(() => import("./pages/main/events"));
+const Blog = lazy(() => import("./pages/main/blog"));
+const Contact = lazy(() => import("./pages/main/contact"));
+const Gallery = lazy(() => import("./pages/main/gallery"));
+const FAQs = lazy(() => import("./pages/main/faqs"));
 
-const TermsAndConditions = lazy(() => import("./pages/terms-and-conditions"));
-const PrivacyPolicy = lazy(() => import("./pages/privacy-policy"));
-const DonationPolicy = lazy(() => import("./pages/donation-policy"));
+const TermsAndConditions = lazy(
+  () => import("./pages/subsidiary/terms-and-conditions")
+);
+const PrivacyPolicy = lazy(() => import("./pages/subsidiary/privacy-policy"));
+const DonationPolicy = lazy(() => import("./pages/subsidiary/donation-policy"));
 
-const EducationalSupport = lazy(() => import("./pages/educational-support"));
-const CommunityOutreach = lazy(() => import("./pages/community-outreach"));
+const EducationalSupport = lazy(
+  () => import("./pages/subsidiary/educational-support")
+);
+const CommunityOutreach = lazy(
+  () => import("./pages/subsidiary/community-outreach")
+);
 
 function App() {
   return (
@@ -50,8 +56,14 @@ function App() {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/donation-policy" element={<DonationPolicy />} />
 
-          <Route path="/educational-support" element={<EducationalSupport />} />
-          <Route path="/community-outreach" element={<CommunityOutreach />} />
+          <Route
+            path="/programs/educational-support"
+            element={<EducationalSupport />}
+          />
+          <Route
+            path="/programs/community-outreach"
+            element={<CommunityOutreach />}
+          />
         </Routes>
       </Router>
     </Suspense>
