@@ -114,8 +114,8 @@ const ScholarshipApplication: React.FC = () => {
           For 2nd Edition One Million Naira Scholarship in honour of Dr. Sir
           Ernest Azudialu Obiejesi (OBIJACKSON'S Birthday)
         </p>
-        <span className="pr-60">
-          <span className="text-red-700 font-bold">NOTE: </span>THIS SCHOLARSHIP
+        <span className="">
+          <span className="font-bold">NOTE: </span>THIS SCHOLARSHIP
           IS ONLY FOR{" "}
           <span className="font-bold text-red-700">OKIJA INDIGENES</span>
         </span>
