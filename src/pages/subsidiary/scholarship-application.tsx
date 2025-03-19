@@ -13,13 +13,12 @@ interface ScholarshipFormData {
   obiArea: string;
   category: "Primary" | "Secondary" | "Tertiary";
   guardianName: string;
-  guardianBank: string;
-  guardianAccountNo: string;
-  guardianAccountName: string;
+  relationshipWithWard: "Father" | "Mother" | "Guardian";
   guardianPhone: string;
   schoolName: string;
   schoolState: string;
   schoolLGA: string;
+  schoolFees: number;
   schoolBank: string;
   schoolAccountNo: string;
   schoolAccountName: string;
@@ -55,13 +54,12 @@ const ScholarshipApplication: React.FC = () => {
         obiArea: data.obiArea,
         category: data.category,
         guardianName: data.guardianName,
-        guardianBank: data.guardianBank,
-        guardianAccountNo: data.guardianAccountNo,
-        guardianAccountName: data.guardianAccountName,
+        relationshipWithWard: data.relationshipWithWard,
         guardianPhone: data.guardianPhone,
         schoolName: data.schoolName,
         schoolState: data.schoolState,
         schoolLGA: data.schoolLGA,
+        schoolFees: data.schoolFees,
         schoolBank: data.schoolBank,
         schoolAccountNo: data.schoolAccountNo,
         schoolAccountName: data.schoolAccountName,
@@ -135,6 +133,9 @@ const ScholarshipApplication: React.FC = () => {
             <option value="Male">Male</option>
             <option value="Female">Female</option>
           </select>
+          {errors.gender && (
+            <p className="text-red-500">{errors.gender.message}</p>
+          )}
 
           <label>Date of Birth</label>
 
@@ -193,29 +194,16 @@ const ScholarshipApplication: React.FC = () => {
             className="w-full p-3 border rounded-lg"
           />
 
-          <label>Bank Name</label>
-          <input
-            {...register("guardianBank", {
-              required: "Guardian Bank is required",
-            })}
+          <label>Relationship With Ward</label>
+          <select
+            {...register("relationshipWithWard", { required: "Relationship with ward is required" })}
             className="w-full p-3 border rounded-lg"
-          />
-
-          <label>Account Number</label>
-          <input
-            {...register("guardianAccountNo", {
-              required: "Account Number is required",
-            })}
-            className="w-full p-3 border rounded-lg"
-          />
-
-          <label>Account Name</label>
-          <input
-            {...register("guardianAccountName", {
-              required: "Account Name is required",
-            })}
-            className="w-full p-3 border rounded-lg"
-          />
+          >
+            <option value="">Select relationship</option>
+            <option value="Father">Father</option>
+            <option value="Mother">Mother</option>
+            <option value="Guardian">Guardian</option>
+          </select>
 
           <label>Phone Number</label>
           <input
@@ -246,7 +234,16 @@ const ScholarshipApplication: React.FC = () => {
             className="w-full p-3 border rounded-lg"
           />
 
-          <label>Bank Name</label>
+          <label>School Fees</label>
+          <input
+            {...register("schoolFees", {
+              required: "School Fees is required",
+            })}
+            placeholder="e.g #50,000"
+            className="w-full p-3 border rounded-lg"
+          />
+
+          <label>School's Bank Name</label>
           <input
             {...register("schoolBank", {
               required: "School Bank is required",
@@ -254,7 +251,7 @@ const ScholarshipApplication: React.FC = () => {
             className="w-full p-3 border rounded-lg"
           />
 
-          <label>Account Number</label>
+          <label>School's Account Number</label>
           <input
             {...register("schoolAccountNo", {
               required: "Account Number is required",
@@ -262,7 +259,7 @@ const ScholarshipApplication: React.FC = () => {
             className="w-full p-3 border rounded-lg"
           />
 
-          <label>Account Name</label>
+          <label>School's Account Name</label>
           <input
             {...register("schoolAccountName", {
               required: "Account Name is required",
@@ -299,7 +296,8 @@ const ScholarshipApplication: React.FC = () => {
           <label>Why should you be considered for this scholarship?</label>
           <textarea
             {...register("reason", { required: "This field is required" })}
-            className="w-full p-3 border rounded-lg mt-3" rows={10}
+            className="w-full p-3 border rounded-lg mt-3"
+            rows={10}
           />
 
           <label>
@@ -324,7 +322,8 @@ const ScholarshipApplication: React.FC = () => {
               className="text-[#be202f] font-medium"
             >
               0703 055 5581
-            </Link>{" or "}
+            </Link>
+            {" or "}
             <Link
               to={"https://wa.me/+2347077145544"}
               target="_blank"
