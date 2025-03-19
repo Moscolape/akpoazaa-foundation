@@ -107,14 +107,15 @@ const ScholarshipApplication: React.FC = () => {
   return (
     <PageWrapper>
       <div className="p-6 sm:bg-gray-100 rounded-md sm:shadow-lg max-w-3xl mx-auto my-20 font-Montserrat">
-        <h2 className="sm:text-3xl text-2xl font-bold mb-4 text-center">
+        <h2 className="sm:text-3xl text-2xl font-bold mb-4 text-center text-[#be202f]">
           Scholarship Application
         </h2>
         <p className="text-gray-800 text-center mb-4 font-bold">
-          (For 2nd Edition One Million Naira Scholarship in honour of Dr. Sir
-          Ernest Azudialu Obiejesi)
+          For 2nd Edition One Million Naira Scholarship in honour of Dr. Sir
+          Ernest Azudialu Obiejesi (Obijackson Foundation)
         </p>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          <h3 className="text-xl font-semibold mt-6">Personal Information</h3>
           <label>Full Name</label>
           <input
             {...register("fullName", { required: "Full Name is required" })}
@@ -145,18 +146,23 @@ const ScholarshipApplication: React.FC = () => {
             {...register("dob", { required: "Date of Birth is required" })}
             className="w-full p-3 border rounded-lg"
           />
+          {errors.dob && <p className="text-red-500">{errors.dob.message}</p>}
 
           <label>Village</label>
           <input
             {...register("village", { required: "Village is required" })}
             className="w-full p-3 border rounded-lg"
           />
+          {errors.village && (
+            <p className="text-red-500">{errors.village.message}</p>
+          )}
 
           <label>Town</label>
           <input
             {...register("town", { required: "Town is required" })}
             className="w-full p-3 border rounded-lg"
           />
+          {errors.town && <p className="text-red-500">{errors.town.message}</p>}
 
           <label>State of Residence</label>
           <input
@@ -165,12 +171,18 @@ const ScholarshipApplication: React.FC = () => {
             })}
             className="w-full p-3 border rounded-lg"
           />
+          {errors.stateResidence && (
+            <p className="text-red-500">{errors.stateResidence.message}</p>
+          )}
 
           <label>Obi Area in Okija</label>
           <input
             {...register("obiArea", { required: "Obi Area is required" })}
             className="w-full p-3 border rounded-lg"
           />
+          {errors.obiArea && (
+            <p className="text-red-500">{errors.obiArea.message}</p>
+          )}
 
           <label>Category</label>
           <select
@@ -182,6 +194,9 @@ const ScholarshipApplication: React.FC = () => {
             <option value="Secondary">Secondary</option>
             <option value="Tertiary">Tertiary</option>
           </select>
+          {errors.category && (
+            <p className="text-red-500">{errors.category.message}</p>
+          )}
 
           <h3 className="text-xl font-semibold mt-6">
             Parent/Guardian Information
@@ -193,10 +208,15 @@ const ScholarshipApplication: React.FC = () => {
             })}
             className="w-full p-3 border rounded-lg"
           />
+          {errors.guardianName && (
+            <p className="text-red-500">{errors.guardianName.message}</p>
+          )}
 
           <label>Relationship With Ward</label>
           <select
-            {...register("relationshipWithWard", { required: "Relationship with ward is required" })}
+            {...register("relationshipWithWard", {
+              required: "Relationship with ward is required",
+            })}
             className="w-full p-3 border rounded-lg"
           >
             <option value="">Select relationship</option>
@@ -204,6 +224,11 @@ const ScholarshipApplication: React.FC = () => {
             <option value="Mother">Mother</option>
             <option value="Guardian">Guardian</option>
           </select>
+          {errors.relationshipWithWard && (
+            <p className="text-red-500">
+              {errors.relationshipWithWard.message}
+            </p>
+          )}
 
           <label>Phone Number</label>
           <input
@@ -212,6 +237,9 @@ const ScholarshipApplication: React.FC = () => {
             })}
             className="w-full p-3 border rounded-lg"
           />
+          {errors.guardianPhone && (
+            <p className="text-red-500">{errors.guardianPhone.message}</p>
+          )}
 
           <h3 className="text-xl font-semibold mt-6">School Information</h3>
           <label>Name of School</label>
@@ -219,6 +247,9 @@ const ScholarshipApplication: React.FC = () => {
             {...register("schoolName", { required: "School Name is required" })}
             className="w-full p-3 border rounded-lg"
           />
+          {errors.schoolName && (
+            <p className="text-red-500">{errors.schoolName.message}</p>
+          )}
 
           <label>School's State</label>
           <input
@@ -227,21 +258,30 @@ const ScholarshipApplication: React.FC = () => {
             })}
             className="w-full p-3 border rounded-lg"
           />
+          {errors.schoolState && (
+            <p className="text-red-500">{errors.schoolState.message}</p>
+          )}
 
           <label>School's LGA</label>
           <input
             {...register("schoolLGA", { required: "School LGA is required" })}
             className="w-full p-3 border rounded-lg"
           />
+          {errors.schoolLGA && (
+            <p className="text-red-500">{errors.schoolLGA.message}</p>
+          )}
 
           <label>School Fees</label>
           <input
             {...register("schoolFees", {
               required: "School Fees is required",
             })}
-            placeholder="e.g #50,000"
+            placeholder="e.g #10,000"
             className="w-full p-3 border rounded-lg"
           />
+          {errors.schoolFees && (
+            <p className="text-red-500">{errors.schoolFees.message}</p>
+          )}
 
           <label>School's Bank Name</label>
           <input
@@ -250,6 +290,9 @@ const ScholarshipApplication: React.FC = () => {
             })}
             className="w-full p-3 border rounded-lg"
           />
+          {errors.schoolBank && (
+            <p className="text-red-500">{errors.schoolBank.message}</p>
+          )}
 
           <label>School's Account Number</label>
           <input
@@ -258,6 +301,9 @@ const ScholarshipApplication: React.FC = () => {
             })}
             className="w-full p-3 border rounded-lg"
           />
+          {errors.schoolAccountNo && (
+            <p className="text-red-500">{errors.schoolAccountNo.message}</p>
+          )}
 
           <label>School's Account Name</label>
           <input
@@ -266,6 +312,9 @@ const ScholarshipApplication: React.FC = () => {
             })}
             className="w-full p-3 border rounded-lg"
           />
+          {errors.schoolAccountName && (
+            <p className="text-red-500">{errors.schoolAccountName.message}</p>
+          )}
 
           <label>Phone Number</label>
           <input
@@ -274,6 +323,9 @@ const ScholarshipApplication: React.FC = () => {
             })}
             className="w-full p-3 border rounded-lg"
           />
+          {errors.schoolPhone && (
+            <p className="text-red-500">{errors.schoolPhone.message}</p>
+          )}
 
           <h3 className="text-xl font-semibold mt-6">Referral Information</h3>
           <label>Name of Referral</label>
@@ -283,6 +335,9 @@ const ScholarshipApplication: React.FC = () => {
             })}
             className="w-full p-3 border rounded-lg"
           />
+          {errors.referralName && (
+            <p className="text-red-500">{errors.referralName.message}</p>
+          )}
 
           <label>Phone Number</label>
           <input
@@ -291,6 +346,9 @@ const ScholarshipApplication: React.FC = () => {
             })}
             className="w-full p-3 border rounded-lg"
           />
+          {errors.referralPhone && (
+            <p className="text-red-500">{errors.referralPhone.message}</p>
+          )}
 
           <h3 className="text-xl font-semibold mt-6">Additional Information</h3>
           <label>Why should you be considered for this scholarship?</label>
@@ -299,6 +357,9 @@ const ScholarshipApplication: React.FC = () => {
             className="w-full p-3 border rounded-lg mt-3"
             rows={10}
           />
+          {errors.reason && (
+            <p className="text-red-500">{errors.reason.message}</p>
+          )}
 
           <label>
             <input
@@ -306,11 +367,15 @@ const ScholarshipApplication: React.FC = () => {
               {...register("declaration", {
                 required: "You must accept the declaration",
               })}
+              className="accent-[#be202f] mr-1"
             />
             I hereby declare that the information provided is accurate to the
             best of my knowledge. I understand that any false information may
             lead to disqualification.
           </label>
+          {errors.declaration && (
+            <p className="text-red-500">{errors.declaration.message}</p>
+          )}
 
           <h2 className="text-xl font-bold mt-6 mb-4">Feedback</h2>
           <p>
