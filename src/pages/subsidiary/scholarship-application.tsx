@@ -109,7 +109,7 @@ const ScholarshipApplication: React.FC = () => {
   return (
     <PageWrapper>
       <div className="p-6 sm:bg-gray-100 rounded-md sm:shadow-lg max-w-3xl mx-auto my-20 font-Montserrat">
-        <h2 className="text-3xl font-bold mb-4 text-center">
+        <h2 className="sm:text-3xl text-2xl font-bold mb-4 text-center">
           Scholarship Application
         </h2>
         <p className="text-gray-800 text-center mb-4 font-bold">
@@ -299,7 +299,7 @@ const ScholarshipApplication: React.FC = () => {
           <label>Why should you be considered for this scholarship?</label>
           <textarea
             {...register("reason", { required: "This field is required" })}
-            className="w-full p-3 border rounded-lg"
+            className="w-full p-3 border rounded-lg mt-3" rows={10}
           />
 
           <label>
@@ -319,13 +319,20 @@ const ScholarshipApplication: React.FC = () => {
             For feedback and more information about the competition, chat us on
             WhatsApp via{" "}
             <Link
+              to={"https://wa.me/+2347030555581"}
+              target="_blank"
+              className="text-[#be202f] font-medium"
+            >
+              0703 055 5581
+            </Link>{" or "}
+            <Link
               to={"https://wa.me/+2347077145544"}
               target="_blank"
               className="text-[#be202f] font-medium"
             >
               0707 714 5544
             </Link>{" "}
-            and click to follow us on all the Facebook Pages below;
+            and click to follow us on the Facebook Pages below;
           </p>
           <div>
             <a
