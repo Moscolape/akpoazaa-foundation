@@ -27,6 +27,10 @@ const CommunityOutreach = lazy(
   () => import("./pages/subsidiary/community-outreach")
 );
 
+const Volunteer = lazy(() => import("./pages/subsidiary/volunteer"));
+const PartnerWithUs = lazy(() => import("./pages/subsidiary/partner"));
+const HostEvent = lazy(() => import("./pages/subsidiary/host-event"));
+
 function App() {
   return (
     <Suspense
@@ -64,6 +68,10 @@ function App() {
             path="/programs/community-outreach"
             element={<CommunityOutreach />}
           />
+
+          <Route path="/get-involved/volunteer" element={<Volunteer />} />
+          <Route path="/get-involved/partner" element={<PartnerWithUs />} />
+          <Route path="/get-involved/host-event" element={<HostEvent />} />
         </Routes>
       </Router>
     </Suspense>

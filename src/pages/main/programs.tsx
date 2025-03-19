@@ -12,7 +12,7 @@ const programs = [
   {
     title: "Skill Development",
     description: "Empowering individuals through vocational training, technology education, and career readiness programs.",
-    link: "/programs/skill-development",
+    // link: "/programs/skill-development",
   },
   {
     title: "Community Outreach",
@@ -22,7 +22,7 @@ const programs = [
   {
     title: "Upcoming Programs",
     description: "Stay updated on our active projects and upcoming initiatives aimed at community betterment.",
-    link: "/programs/upcoming-programs",
+    // link: "/programs/upcoming-programs",
   },
 ];
 
@@ -48,7 +48,7 @@ const Programs = () => {
             <div key={index} className="sm:p-6" data-aos="fade-up">
               <h2 className="sm:text-2xl text-lg font-bold sm:text-[#be202f] mb-3">{program.title}</h2>
               <p className="text-gray-700 mb-4">{program.description}</p>
-              <Link to={program.link} className="text-[#be202f] font-semibold hover:underline">
+              <Link to={program.link ? program.link : ''} className="text-[#be202f] font-semibold hover:underline">
                 Learn More →
               </Link>
             </div>
