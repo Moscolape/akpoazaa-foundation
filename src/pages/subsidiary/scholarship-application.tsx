@@ -112,7 +112,7 @@ const ScholarshipApplication: React.FC = () => {
         </h2>
         <p className="text-gray-800 text-center mb-4 font-bold">
           For 2nd Edition One Million Naira Scholarship in honour of Dr. Sir
-          Ernest Azudialu Obiejesi (Obijackson Foundation)
+          Ernest Azudialu Obiejesi (OBIJACKSON'S Birthday)
         </p>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <h3 className="text-xl font-semibold mt-6">Personal Information</h3>
