@@ -31,6 +31,10 @@ const Volunteer = lazy(() => import("./pages/subsidiary/volunteer"));
 const PartnerWithUs = lazy(() => import("./pages/subsidiary/partner"));
 const HostEvent = lazy(() => import("./pages/subsidiary/host-event"));
 
+const ScholarshipApplication = lazy(
+  () => import("./pages/subsidiary/scholarship-application")
+);
+
 function App() {
   return (
     <Suspense
@@ -72,6 +76,11 @@ function App() {
           <Route path="/get-involved/volunteer" element={<Volunteer />} />
           <Route path="/get-involved/partner" element={<PartnerWithUs />} />
           <Route path="/get-involved/host-event" element={<HostEvent />} />
+
+          <Route
+            path="/programs/educational-support/one-million-naira-scholarship-application-for-okija-indigenes-in-honour-of-dr-sir-ernest-azudialu-obiejesi-(obijackson_foundation)"
+            element={<ScholarshipApplication />}
+          />
         </Routes>
       </Router>
     </Suspense>

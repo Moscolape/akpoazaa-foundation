@@ -52,9 +52,9 @@ const EducationalSupport = () => {
 
           <h3 className="text-lg font-semibold text-gray-800 mt-6">Prize Categories:</h3>
           <ul className="list-disc pl-6 text-gray-700 mt-2">
-            <li>₦250,000 for the overall best-graduating student.</li>
-            <li>₦150,000 for the best-graduating student in the Faculty of Management Sciences.</li>
-            <li>₦100,000 for the best graduating student in the Department of Accountancy.</li>
+            <li><b>₦250,000</b> for the overall best-graduating student.</li>
+            <li><b>₦150,000</b> for the best-graduating student in the Faculty of Management Sciences.</li>
+            <li><b>₦100,000</b> for the best graduating student in the Department of Accountancy.</li>
           </ul>
 
           <p className="text-gray-700 mt-4">
@@ -99,7 +99,7 @@ const EducationalSupport = () => {
           </div>
 
           <div className="mt-10">
-            <Link to="/scholarship-application" className="block bg-gray-300 text-[#be202f] px-6 py-3 rounded-lg shadow-lg hover:bg-[#be202f] hover:text-white transition sm:w-1/4 w-3/4 text-center mx-auto">
+            <Link to="/programs/educational-support/one-million-naira-scholarship-application-for-okija-indigenes-in-honour-of-dr-sir-ernest-azudialu-obiejesi-(obijackson_foundation)" className="block bg-gray-300 text-[#be202f] px-6 py-3 rounded-lg shadow-lg hover:bg-[#be202f] hover:text-white transition sm:w-1/4 w-3/4 text-center mx-auto">
               Apply for Scholarship
             </Link>
           </div>
