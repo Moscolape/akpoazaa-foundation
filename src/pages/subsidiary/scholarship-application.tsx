@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import PageWrapper from "../../components/pageWrapper";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 interface ScholarshipFormData {
   fullName: string;
+  email: string;
   gender: "Male" | "Female";
   dob: string;
   village: string;
@@ -38,7 +39,7 @@ const ScholarshipApplication: React.FC = () => {
   } = useForm<ScholarshipFormData>();
 
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  const navigate = useNavigate();
+  const [message, setMessage] = useState<string>("");
 
   const onSubmit: SubmitHandler<ScholarshipFormData> = async (data) => {
     try {
@@ -46,6 +47,7 @@ const ScholarshipApplication: React.FC = () => {
 
       const payload = {
         fullName: data.fullName,
+        email: data.email,
         gender: data.gender,
         dob: data.dob,
         village: data.village,
@@ -92,10 +94,9 @@ const ScholarshipApplication: React.FC = () => {
       }
 
       const result = await response.json();
-      alert("Scholarship application submitted successfully!");
       console.log(result);
       reset();
-      navigate("/");
+      setMessage(result.message);
     } catch (error) {
       console.error("Error:", error);
       alert("An error occurred. Please try again.");
@@ -115,8 +116,7 @@ const ScholarshipApplication: React.FC = () => {
           Ernest Azudialu Obiejesi (OBIJACKSON'S Birthday)
         </p>
         <span className="">
-          <span className="font-bold">NOTE: </span>THIS SCHOLARSHIP
-          IS ONLY FOR{" "}
+          <span className="font-bold">NOTE: </span>THIS SCHOLARSHIP IS ONLY FOR{" "}
           <span className="font-bold text-red-700">OKIJA INDIGENES</span>
         </span>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -128,6 +128,16 @@ const ScholarshipApplication: React.FC = () => {
           />
           {errors.fullName && (
             <p className="text-red-500">{errors.fullName.message}</p>
+          )}
+
+          <label>Email</label>
+          <input
+            {...register("email", { required: "Full Name is required" })}
+            type="email"
+            className="w-full p-3 border rounded-lg"
+          />
+          {errors.email && (
+            <p className="text-red-500">{errors.email.message}</p>
           )}
 
           <label>Gender</label>
@@ -356,7 +366,10 @@ const ScholarshipApplication: React.FC = () => {
           )}
 
           <h3 className="text-xl font-semibold mt-6">Additional Information</h3>
-          <label>Why should you be considered for this scholarship that is in honour of Dr. Sir Ernest Azudialu Obiejesi?</label>
+          <label>
+            Why should you be considered for this scholarship that is in honour
+            of Dr. Sir Ernest Azudialu Obiejesi?
+          </label>
           <textarea
             {...register("reason", { required: "This field is required" })}
             className="w-full p-3 border rounded-lg mt-3"
@@ -426,6 +439,11 @@ const ScholarshipApplication: React.FC = () => {
           >
             {isSubmitting ? "Submitting..." : "Submit"}
           </button>
+          {message !== "" && (
+            <p className="text-green-700 p-3 rounded text-center bg-green-200">
+              {message}
+            </p>
+          )}
         </form>
       </div>
     </PageWrapper>

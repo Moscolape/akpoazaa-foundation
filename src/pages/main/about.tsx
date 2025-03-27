@@ -51,7 +51,7 @@ const About = () => {
           <br />
           <p>
             After his years of teaching, he started building up foundations for
-            honourable individuals, most of which were indigenes of his
+            honourable individuals, most of whom were indigenes of his
             hometown, Okija. He found out that several individuals were of high
             social strata and they were willing to give back to the community
             and all they needed was someone who they could trust. So when he
@@ -61,7 +61,7 @@ const About = () => {
           <ul className="list-disc ml-4">
             <li>Akuna Akuna empowerment scheme</li>
             <li>Ezejiagba foundation</li>
-            <li>Obiego foundation</li>
+            <li>Ofiafulu ego foundation</li>
             <li>Abignwa foundation</li>
             <li>Igirigi Ego foundation</li>
           </ul>

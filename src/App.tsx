@@ -35,6 +35,9 @@ const ScholarshipApplication = lazy(
   () => import("./pages/subsidiary/scholarship-application")
 );
 
+const VerifyEmail = lazy(() => import("./pages/subsidiary/verify-email"));
+const EmailVerified = lazy(() => import("./pages/subsidiary/email-verified"));
+
 function App() {
   return (
     <Suspense
@@ -81,6 +84,9 @@ function App() {
             path="/programs/educational-support/one-million-naira-scholarship-application-for-okija-indigenes-in-honour-of-dr-sir-ernest-azudialu-obiejesi-(obijackson_foundation)"
             element={<ScholarshipApplication />}
           />
+
+          <Route path="/verify-email" element={<VerifyEmail />} />
+          <Route path="/scholarship-success" element={<EmailVerified />} />
         </Routes>
       </Router>
     </Suspense>
