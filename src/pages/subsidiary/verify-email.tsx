@@ -38,7 +38,7 @@ const VerifyEmail = () => {
       }
     };
 
-    verifyToken();
+    setTimeout(() => verifyToken(), 3000);
   }, [token, navigate]);
 
   return (
