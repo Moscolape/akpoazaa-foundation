@@ -2,7 +2,6 @@ import PageWrapper from "../../components/pageWrapper";
 import { useEffect, useState } from "react";
 import initializeAOS from "../../utils/aos-init";
 import {
-  boss,
   found10,
   found11,
   found12,
@@ -15,6 +14,7 @@ import {
   found25,
   found26,
   found3,
+  found30,
   found31,
   found32,
   found6,
@@ -87,7 +87,7 @@ const Home = () => {
         <div className="relative z-10 text-center px-6">
           {/* Fixed Text */}
           <h1 className="text-3xl md:text-8xl font-Script animate-fadeDown">
-            "Just a Touch for God and Humanity"
+            "Just a Touch for God, Education and Humanity"
           </h1>
         </div>
       </div>
@@ -96,12 +96,12 @@ const Home = () => {
           Brief Overview
         </h1>
         <img
-          src={boss}
+          src={found30}
           alt="ceo"
           className="sm:w-96 sm:h-96 w-72 h-72 mx-auto my-5 rounded-full"
         />
         <p className="p-2 sm:w-4/5 mx-auto" data-aos="fade-down">
-          <span className="text-[#be202f] font-bold">Akpoazaa Foundation</span>{" "}
+          <span className="text-[#be202f] font-bold">AKPOAZAA FOUNDATION</span>{" "}
           is a non-governmental organization dedicated towards empowering
           individuals via education, skill acquisition and community development
           through scholarships, organization of skill workshops and building of
@@ -116,7 +116,7 @@ const Home = () => {
         data-aos="fade-up"
       >
         <h1 className="sm:text-5xl text-2xl font-Urbanist font-bold text-center font-Montserrat">
-          Upcoming Projects & Initiatives
+          Fulfilled Projects
         </h1>
         <div className="flex sm:flex-row flex-col justify-between items-center w-full">
           {/* Image Slider */}
@@ -158,6 +158,9 @@ const Home = () => {
             </Link>
           </div>
         </div>
+        <h1 className="sm:text-5xl text-2xl font-Urbanist font-bold text-center font-Montserrat">
+          Upcoming Projects
+        </h1>
         <div className="flex sm:flex-row flex-col-reverse justify-between items-center w-full">
           <div className="sm:w-[45%] sm:mt-0 mt-5" data-aos="fade-down">
             <p className="sm:text-2xl text-xl font-bold mb-3">

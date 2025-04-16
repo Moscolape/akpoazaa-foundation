@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./index.css";
 import "./App.css";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const Home = lazy(() => import("./pages/main/home"));
 const About = lazy(() => import("./pages/main/about"));
 const Programs = lazy(() => import("./pages/main/programs"));
@@ -47,6 +50,7 @@ function App() {
         </div>
       }
     >
+      <ToastContainer position="top-right" autoClose={3000} />
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
