@@ -50,7 +50,7 @@ function App() {
         </div>
       }
     >
-      <ToastContainer position="top-right" autoClose={3000} />
+      <ToastContainer position="bottom-right" autoClose={3000} />
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
