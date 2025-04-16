@@ -150,7 +150,7 @@ const Home = () => {
               </li>
               <li>
                 <b>₦100,000</b> for the best graduating student in the
-                Department of Accountancy, which is his alma mater.
+                Department of Accountancy, his alma mater.
               </li>
             </ul>
             <Link to={"/programs"}>

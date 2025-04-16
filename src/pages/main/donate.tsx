@@ -10,7 +10,7 @@ const Donate = () => {
     initializeAOS();
   }, []);
 
-  const [donationAmount, setDonationAmount] = useState<number>(100);
+  const [donationAmount, setDonationAmount] = useState<number>(5000);
   const [email, setEmail] = useState<string>("");
   const [errors, setErrors] = useState<{ email?: string; donation?: string }>(
     {}
@@ -27,8 +27,8 @@ const Donate = () => {
       newErrors.email = "Please enter a valid email address.";
     }
 
-    if (!donationAmount || donationAmount < 100) {
-      newErrors.donation = "Minimum donation is ₦100.";
+    if (!donationAmount || donationAmount < 5000) {
+      newErrors.donation = "Minimum donation is ₦5,000.";
     }
 
     setErrors(newErrors);
@@ -61,7 +61,7 @@ const Donate = () => {
             if (data.status === "success") {
               toast.success("Thank you! Donation successful.");
               setEmail("");
-              setDonationAmount(100);
+              setDonationAmount(5000);
               setErrors({});
             } else {
               toast.error("Payment verification failed.");
