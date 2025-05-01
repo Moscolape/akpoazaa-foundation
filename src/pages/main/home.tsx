@@ -27,7 +27,7 @@ import {
 import { AnimatePresence, motion } from "framer-motion";
 import ImageSlider from "../../components/image-slider";
 import { Link } from "react-router-dom";
-import Testimonials from "../../components/testimonials";
+// import Testimonials from "../../components/testimonials";
 import CTA from "../../components/cta";
 import Partners from "../../components/partners";
 
@@ -210,7 +210,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div
+      {/* <div
         className="font-Montserrat sm:w-[80%] mx-auto p-2 sm:mt-10 mt-5"
         data-aos="fade-up"
       >
@@ -218,7 +218,7 @@ const Home = () => {
           Testimonials
         </h1>
         <Testimonials />
-      </div>
+      </div> */}
       <CTA />
       <div
         className="font-Montserrat w-full mx-auto p-2 sm:mt-10 mt-5"
