@@ -108,13 +108,13 @@ const ScholarshipApplication: React.FC = () => {
   return (
     <PageWrapper>
       <div className="p-6 sm:bg-gray-100 rounded-md sm:shadow-lg max-w-3xl mx-auto my-20 font-Montserrat">
-        <h2 className="sm:text-3xl text-2xl font-bold mb-4 text-center text-[#be202f]">
-          Scholarship Application
+        <h2 className="sm:text-3xl text-2xl font-bold mb-4 text-center">
+          AKPOAZAA FOUNDATION Scholarship Beneficiary Form
         </h2>
-        <p className="text-gray-800 text-center mb-4 font-bold">
+        {/* <p className="text-gray-800 text-center mb-4 font-bold">
           For 2nd Edition One Million Naira Scholarship in honour of Dr. Sir
           Ernest Azudialu Obiejesi (OBIJACKSON'S Birthday)
-        </p>
+        </p> */}
         <span className="">
           <span className="font-bold">NOTE: </span>THIS SCHOLARSHIP IS ONLY FOR{" "}
           <span className="font-bold text-red-700">OKIJA INDIGENES</span>
@@ -367,8 +367,7 @@ const ScholarshipApplication: React.FC = () => {
 
           <h3 className="text-xl font-semibold mt-6">Additional Information</h3>
           <label>
-            Why should you be considered for this scholarship that is in honour
-            of Dr. Sir Ernest Azudialu Obiejesi?
+            Why should you be considered for this scholarship?
           </label>
           <textarea
             {...register("reason", { required: "This field is required" })}

@@ -85,7 +85,7 @@ function App() {
           <Route path="/get-involved/host-event" element={<HostEvent />} />
 
           <Route
-            path="/programs/educational-support/one-million-naira-scholarship-application-for-okija-indigenes-in-honour-of-dr-sir-ernest-azudialu-obiejesi-(obijackson_foundation)"
+            path="/programs/educational-support/akpoazaa-foundation-scholarship-beneficiary-registration-form"
             element={<ScholarshipApplication />}
           />
 
