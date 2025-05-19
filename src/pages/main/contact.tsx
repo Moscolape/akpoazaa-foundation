@@ -123,12 +123,20 @@ const Contact: React.FC = () => {
         </div>
 
         {/* Location on Map */}
-
-        <MapComponent
-          latitude={6.1329419}
-          longitude={6.7923994}
-          locationName="Suite B6, Millenium Plaza by Total Energies Filling Station, Aroma Junction, Awka, Nigeria"
-        />
+        <div
+          className="w-full h-[400px] sm:h-auto mt-16"
+          data-aos="fade-up"
+          data-aos-delay={500}
+        >
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2712314922596!2d7.075312974750628!3d6.227926893760229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1043828948fc4ed5%3A0xb36cf597b082136a!2sTotal%20Filling%20Station!5e0!3m2!1sen!2sng!4v1747497285354!5m2!1sen!2sng"
+            className="w-full h-full"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
       </div>
 
       {/* Contact Details */}
