@@ -7,8 +7,6 @@ import { AiOutlineMail } from "react-icons/ai";
 import initializeAOS from "../../utils/aos-init";
 import axios from "axios";
 
-import MapComponent from "../../components/map";
-
 // Define Form Data Type
 interface ContactFormData {
   name: string;
