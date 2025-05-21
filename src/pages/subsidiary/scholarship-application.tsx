@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import PageWrapper from "../../components/pageWrapper";
 import { Link } from "react-router-dom";
 import { statesData } from "../../utils/allStatesdata";
@@ -17,6 +17,7 @@ interface ScholarshipFormData {
   // obiArea: string;
   category: "Primary" | "Secondary" | "Tertiary" | "Nursery";
   class: string;
+  passport: FileList;
   guardianName: string;
   relationshipWithWard: "Father" | "Mother" | "Guardian";
   guardianPhone: string;
@@ -45,6 +46,9 @@ const ScholarshipApplication: React.FC = () => {
 
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [message, setMessage] = useState<string>("");
+  const [secondPreviewImage, setSecondPreviewImage] = useState<string | null>(
+    null
+  );
 
   const category = watch("category");
 
@@ -58,41 +62,25 @@ const ScholarshipApplication: React.FC = () => {
     (state) => state.state === stateSchool
   );
 
-  const onSubmit: SubmitHandler<ScholarshipFormData> = async (data) => {
+  const onSubmit = async (data: ScholarshipFormData) => {
+    setIsSubmitting(true);
     try {
-      setIsSubmitting(true);
+      const formData = new FormData();
 
-      const payload = {
-        fullName: data.fullName,
-        email: data.email,
-        gender: data.gender,
-        dob: data.dob,
-        // village: data.village,
-        // town: data.town,
-        stateResidence: data.stateResidence,
-        // obiArea: data.obiArea,
-        stateOrigin: data.stateOrigin,
-        lgaOrigin: data.lgaOrigin,
-        category: data.category,
-        class: data.class,
-        guardianName: data.guardianName,
-        relationshipWithWard: data.relationshipWithWard,
-        guardianPhone: data.guardianPhone,
-        schoolName: data.schoolName,
-        schoolState: data.schoolState,
-        schoolLGA: data.schoolLGA,
-        schoolFees: data.schoolFees,
-        schoolBank: data.schoolBank,
-        schoolAccountNo: data.schoolAccountNo,
-        schoolAccountName: data.schoolAccountName,
-        schoolPhone: data.schoolPhone,
-        referralName: data.referralName,
-        referralPhone: data.referralPhone,
-        reason: data.reason,
-        declaration: data.declaration,
-      };
+      Object.entries(data).forEach(([key, value]) => {
+        if (!["passport"].includes(key)) {
+          formData.append(key, value as string);
+        }
+      });
 
-      console.log("Submitting Data:", payload);
+      const passport = data.passport?.[0];
+
+      if (!passport) {
+        alert("Please upload your passport photo.");
+        return;
+      }
+
+      formData.append("passport", passport);
 
       const response = await fetch(
         "https://akpoazaa-foundation-backend.onrender.com/api/scholarship/foundation/register",
@@ -102,7 +90,7 @@ const ScholarshipApplication: React.FC = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(payload),
+          body: formData,
         }
       );
 
@@ -286,7 +274,9 @@ const ScholarshipApplication: React.FC = () => {
             <p className="text-red-500">{errors.category.message}</p>
           )}
 
-          {category === "Nursery" || category === "Primary" || category === "Secondary" ? (
+          {category === "Nursery" ||
+          category === "Primary" ||
+          category === "Secondary" ? (
             <div className="animate-fadeDownFast">
               <label>Class</label>
               <input
@@ -313,6 +303,42 @@ const ScholarshipApplication: React.FC = () => {
               )}
             </div>
           ) : null}
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Upload Clear Passport Photo
+            </label>
+            <input
+              type="file"
+              accept=".jpg, .png, .jpeg"
+              {...register("passport", {
+                required: "You must upload a clear photo of your face",
+              })}
+              onChange={(e) => {
+                const file = e.target.files?.[0];
+                if (file) {
+                  setSecondPreviewImage(URL.createObjectURL(file));
+                }
+              }}
+              className="w-full py-3 outline-none placeholder:text-gray-400"
+            />
+            {errors.passport && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.passport.message}
+              </p>
+            )}
+          </div>
+
+          {secondPreviewImage && (
+            <div>
+              <p className="font-medium mb-2">Passport Preview:</p>
+              <img
+                src={secondPreviewImage}
+                alt="Slip Preview"
+                className="w-64 h-64 object-cover"
+              />
+            </div>
+          )}
 
           <h3 className="text-xl font-semibold mt-6">
             Parent/Guardian Information
