@@ -11,11 +11,12 @@ interface ScholarshipFormData {
   dob: string;
   // village: string;
   // town: string;
-  // stateResidence: string;
+  stateResidence: string;
   stateOrigin: string;
   lgaOrigin: string;
   // obiArea: string;
   category: "Primary" | "Secondary" | "Tertiary";
+  class: string;
   guardianName: string;
   relationshipWithWard: "Father" | "Mother" | "Guardian";
   guardianPhone: string;
@@ -45,6 +46,8 @@ const ScholarshipApplication: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [message, setMessage] = useState<string>("");
 
+  const category = watch("category");
+
   const stateOfOrigin = watch("stateOrigin");
   const selectedState = statesData.find(
     (state) => state.state === stateOfOrigin
@@ -66,11 +69,12 @@ const ScholarshipApplication: React.FC = () => {
         dob: data.dob,
         // village: data.village,
         // town: data.town,
-        // stateResidence: data.stateResidence,
+        stateResidence: data.stateResidence,
         // obiArea: data.obiArea,
         stateOrigin: data.stateOrigin,
         lgaOrigin: data.lgaOrigin,
         category: data.category,
+        class: data.class,
         guardianName: data.guardianName,
         relationshipWithWard: data.relationshipWithWard,
         guardianPhone: data.guardianPhone,
@@ -203,20 +207,29 @@ const ScholarshipApplication: React.FC = () => {
           />
           {errors.town && <p className="text-red-500">{errors.town.message}</p>} */}
 
-          {/* <label>State of Residence</label>
-          <input
-            {...register("stateOrigin", {
+          <label>State of Residence</label>
+          <select
+            {...register("stateResidence", {
               required: "State of Residence is required",
             })}
             className="w-full p-3 border rounded-lg"
-          />
+          >
+            <option value="">Select State</option>
+            {statesData.map(({ state }) => (
+              <option key={state} value={state}>
+                {state}
+              </option>
+            ))}
+          </select>
           {errors.stateResidence && (
             <p className="text-red-500">{errors.stateResidence.message}</p>
-          )} */}
+          )}
 
           <label>State of Origin</label>
           <select
-            {...register("stateOrigin", { required: "State is required" })}
+            {...register("stateOrigin", {
+              required: "State of Origin is required",
+            })}
             className="w-full p-3 border rounded-lg"
           >
             <option value="">Select State</option>
@@ -232,7 +245,9 @@ const ScholarshipApplication: React.FC = () => {
 
           <label>LGA of Origin</label>
           <select
-            {...register("lgaOrigin", { required: "LGA is required" })}
+            {...register("lgaOrigin", {
+              required: "LGA of Origin is required",
+            })}
             className="w-full p-3 border rounded-lg"
             disabled={!selectedState}
           >
@@ -269,6 +284,34 @@ const ScholarshipApplication: React.FC = () => {
           {errors.category && (
             <p className="text-red-500">{errors.category.message}</p>
           )}
+
+          {category === "Primary" || category === "Secondary" ? (
+            <div className="animate-fadeDownFast">
+              <label>Class</label>
+              <input
+                {...register("class", { required: "Class is required" })}
+                className="w-full p-3 border rounded-lg"
+                placeholder="Enter class"
+              />
+              {errors.class && (
+                <p className="text-red-500">{errors.class.message}</p>
+              )}
+            </div>
+          ) : category === "Tertiary" ? (
+            <div className="animate-fadeDownFast">
+              <label>Department</label>
+              <input
+                {...register("class", {
+                  required: "Department is required",
+                })}
+                className="w-full p-3 border rounded-lg"
+                placeholder="Enter department"
+              />
+              {errors.class && (
+                <p className="text-red-500">{errors.class.message}</p>
+              )}
+            </div>
+          ) : null}
 
           <h3 className="text-xl font-semibold mt-6">
             Parent/Guardian Information
