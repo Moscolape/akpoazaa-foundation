@@ -99,9 +99,9 @@ const EducationalSupport = () => {
           </div>
 
           <div className="mt-10">
-            <Link to="/programs/educational-support/akpoazaa-foundation-scholarship-beneficiary-registration-form" className="block bg-gray-300 text-[#be202f] px-6 py-3 rounded-lg shadow-lg hover:bg-[#be202f] hover:text-white transition sm:w-1/4 w-3/4 text-center mx-auto">
+            <a href="/programs/educational-support/akpoazaa-foundation-scholarship-beneficiary-registration-form" className="block bg-gray-300 text-[#be202f] px-6 py-3 rounded-lg shadow-lg hover:bg-[#be202f] hover:text-white transition sm:w-1/4 w-3/4 text-center mx-auto">
               Apply for Scholarship
-            </Link>
+            </a>
           </div>
         </div>
 

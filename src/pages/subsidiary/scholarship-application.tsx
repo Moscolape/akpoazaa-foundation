@@ -2,16 +2,19 @@ import React, { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import PageWrapper from "../../components/pageWrapper";
 import { Link } from "react-router-dom";
+import { statesData } from "../../utils/allStatesdata";
 
 interface ScholarshipFormData {
   fullName: string;
   email: string;
   gender: "Male" | "Female";
   dob: string;
-  village: string;
-  town: string;
-  stateResidence: string;
-  obiArea: string;
+  // village: string;
+  // town: string;
+  // stateResidence: string;
+  stateOrigin: string;
+  lgaOrigin: string;
+  // obiArea: string;
   category: "Primary" | "Secondary" | "Tertiary";
   guardianName: string;
   relationshipWithWard: "Father" | "Mother" | "Guardian";
@@ -35,11 +38,17 @@ const ScholarshipApplication: React.FC = () => {
     register,
     handleSubmit,
     reset,
+    watch,
     formState: { errors },
   } = useForm<ScholarshipFormData>();
 
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [message, setMessage] = useState<string>("");
+
+  const stateOfOrigin = watch("stateOrigin");
+  const selectedState = statesData.find(
+    (state) => state.state === stateOfOrigin
+  );
 
   const onSubmit: SubmitHandler<ScholarshipFormData> = async (data) => {
     try {
@@ -50,10 +59,12 @@ const ScholarshipApplication: React.FC = () => {
         email: data.email,
         gender: data.gender,
         dob: data.dob,
-        village: data.village,
-        town: data.town,
-        stateResidence: data.stateResidence,
-        obiArea: data.obiArea,
+        // village: data.village,
+        // town: data.town,
+        // stateResidence: data.stateResidence,
+        // obiArea: data.obiArea,
+        stateOrigin: data.stateOrigin,
+        lgaOrigin: data.lgaOrigin,
         category: data.category,
         guardianName: data.guardianName,
         relationshipWithWard: data.relationshipWithWard,
@@ -75,7 +86,8 @@ const ScholarshipApplication: React.FC = () => {
       console.log("Submitting Data:", payload);
 
       const response = await fetch(
-        "https://akpoazaa-foundation-backend.onrender.com/api/scholarship/register",
+        "https://akpoazaa-foundation-backend.onrender.com/api/scholarship/foundation/register",
+        // "https://akpoazaa-foundation-backend.onrender.com/api/scholarship/register",
         {
           method: "POST",
           headers: {
@@ -115,12 +127,12 @@ const ScholarshipApplication: React.FC = () => {
           For 2nd Edition One Million Naira Scholarship in honour of Dr. Sir
           Ernest Azudialu Obiejesi (OBIJACKSON'S Birthday)
         </p> */}
-        <span className="">
+        {/* <span className="">
           <span className="font-bold">NOTE: </span>THIS SCHOLARSHIP IS ONLY FOR{" "}
           <span className="font-bold text-red-700">OKIJA INDIGENES</span>
-        </span>
+        </span> */}
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-          <h3 className="text-xl font-semibold mt-6">Personal Information</h3>
+          <h3 className="text-xl font-semibold mt-10">Personal Information</h3>
           <label>Full Name</label>
           <input
             {...register("fullName", { required: "Full Name is required" })}
@@ -158,12 +170,19 @@ const ScholarshipApplication: React.FC = () => {
           <input
             placeholder="DD-MM-YYYY e.g 30-01-1985"
             type="text"
-            {...register("dob", { required: "Date of Birth is required" })}
+            {...register("dob", {
+              required: "Date of Birth is required",
+              pattern: {
+                value:
+                  /^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-(19|20)\d{2}$/,
+                message: "Date must be in DD-MM-YYYY format",
+              },
+            })}
             className="w-full p-3 border rounded-lg"
           />
           {errors.dob && <p className="text-red-500">{errors.dob.message}</p>}
 
-          <label>Village</label>
+          {/* <label>Village</label>
           <input
             {...register("village", { required: "Village is required" })}
             className="w-full p-3 border rounded-lg"
@@ -177,27 +196,60 @@ const ScholarshipApplication: React.FC = () => {
             {...register("town", { required: "Town is required" })}
             className="w-full p-3 border rounded-lg"
           />
-          {errors.town && <p className="text-red-500">{errors.town.message}</p>}
+          {errors.town && <p className="text-red-500">{errors.town.message}</p>} */}
 
-          <label>State of Residence</label>
+          {/* <label>State of Residence</label>
           <input
-            {...register("stateResidence", {
+            {...register("stateOrigin", {
               required: "State of Residence is required",
             })}
             className="w-full p-3 border rounded-lg"
           />
           {errors.stateResidence && (
             <p className="text-red-500">{errors.stateResidence.message}</p>
+          )} */}
+
+          <label>State of Origin</label>
+          <select
+            {...register("stateOrigin", { required: "State is required" })}
+            className="w-full p-3 border rounded-lg"
+          >
+            <option value="">Select State</option>
+            {statesData.map(({ state }) => (
+              <option key={state} value={state}>
+                {state}
+              </option>
+            ))}
+          </select>
+          {errors.stateOrigin && (
+            <p className="text-red-500">{errors.stateOrigin.message}</p>
           )}
 
-          <label>Obi Area in Okija</label>
+          <label>LGA of Origin</label>
+          <select
+            {...register("lgaOrigin", { required: "LGA is required" })}
+            className="w-full p-3 border rounded-lg"
+            disabled={!selectedState}
+          >
+            <option value="">Select LGA</option>
+            {selectedState?.lgas.map((lga) => (
+              <option key={lga} value={lga}>
+                {lga}
+              </option>
+            ))}
+          </select>
+          {errors.lgaOrigin && (
+            <p className="text-red-500">{errors.lgaOrigin.message}</p>
+          )}
+
+          {/* <label>Obi Area in Okija</label>
           <input
             {...register("obiArea", { required: "Obi Area is required" })}
             className="w-full p-3 border rounded-lg"
           />
           {errors.obiArea && (
             <p className="text-red-500">{errors.obiArea.message}</p>
-          )}
+          )} */}
 
           <label>Category</label>
           <select
@@ -227,7 +279,7 @@ const ScholarshipApplication: React.FC = () => {
             <p className="text-red-500">{errors.guardianName.message}</p>
           )}
 
-          <label>Relationship With Ward</label>
+          <label>Relationship With Beneficiary</label>
           <select
             {...register("relationshipWithWard", {
               required: "Relationship with ward is required",
@@ -366,9 +418,7 @@ const ScholarshipApplication: React.FC = () => {
           )}
 
           <h3 className="text-xl font-semibold mt-6">Additional Information</h3>
-          <label>
-            Why should you be considered for this scholarship?
-          </label>
+          <label>Why should you be considered for this scholarship?</label>
           <textarea
             {...register("reason", { required: "This field is required" })}
             className="w-full p-3 border rounded-lg mt-3"
@@ -396,7 +446,7 @@ const ScholarshipApplication: React.FC = () => {
 
           <h2 className="text-xl font-bold mt-6 mb-4">Feedback</h2>
           <p>
-            For feedback and more information about the competition, chat us on
+            For feedback and more information about the scholarship, chat us on
             WhatsApp via{" "}
             <Link
               to={"https://wa.me/+2347030555581"}
