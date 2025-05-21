@@ -50,6 +50,11 @@ const ScholarshipApplication: React.FC = () => {
     (state) => state.state === stateOfOrigin
   );
 
+  const stateSchool = watch("schoolState");
+  const selectedSchoolState = statesData.find(
+    (state) => state.state === stateSchool
+  );
+
   const onSubmit: SubmitHandler<ScholarshipFormData> = async (data) => {
     try {
       setIsSubmitting(true);
@@ -319,21 +324,36 @@ const ScholarshipApplication: React.FC = () => {
           )}
 
           <label>School's State</label>
-          <input
+          <select
             {...register("schoolState", {
-              required: "School State is required",
+              required: "School state is required",
             })}
             className="w-full p-3 border rounded-lg"
-          />
+          >
+            <option value="">Select State</option>
+            {statesData.map(({ state }) => (
+              <option key={state} value={state}>
+                {state}
+              </option>
+            ))}
+          </select>
           {errors.schoolState && (
             <p className="text-red-500">{errors.schoolState.message}</p>
           )}
 
           <label>School's LGA</label>
-          <input
+          <select
             {...register("schoolLGA", { required: "School LGA is required" })}
             className="w-full p-3 border rounded-lg"
-          />
+            disabled={!selectedSchoolState}
+          >
+            <option value="">Select LGA</option>
+            {selectedSchoolState?.lgas.map((lga) => (
+              <option key={lga} value={lga}>
+                {lga}
+              </option>
+            ))}
+          </select>
           {errors.schoolLGA && (
             <p className="text-red-500">{errors.schoolLGA.message}</p>
           )}
