@@ -87,9 +87,9 @@ const ScholarshipApplication: React.FC = () => {
         // "https://akpoazaa-foundation-backend.onrender.com/api/scholarship/register",
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          // headers: {
+          //   "Content-Type": "application/json",
+          // },
           body: formData,
         }
       );
