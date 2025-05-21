@@ -15,7 +15,7 @@ interface ScholarshipFormData {
   stateOrigin: string;
   lgaOrigin: string;
   // obiArea: string;
-  category: "Primary" | "Secondary" | "Tertiary";
+  category: "Primary" | "Secondary" | "Tertiary" | "Nursery";
   class: string;
   guardianName: string;
   relationshipWithWard: "Father" | "Mother" | "Guardian";
@@ -277,6 +277,7 @@ const ScholarshipApplication: React.FC = () => {
             className="w-full p-3 border rounded-lg"
           >
             <option value="">Select Category</option>
+            <option value="Nursery">Nursery</option>
             <option value="Primary">Primary</option>
             <option value="Secondary">Secondary</option>
             <option value="Tertiary">Tertiary</option>
@@ -285,7 +286,7 @@ const ScholarshipApplication: React.FC = () => {
             <p className="text-red-500">{errors.category.message}</p>
           )}
 
-          {category === "Primary" || category === "Secondary" ? (
+          {category === "Nursery" || category === "Primary" || category === "Secondary" ? (
             <div className="animate-fadeDownFast">
               <label>Class</label>
               <input
