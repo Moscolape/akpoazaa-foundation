@@ -51,6 +51,8 @@ const Home = () => {
     obi2,
   ];
 
+  const slider3 = ['/bore1.JPG', '/bore2.JPG', '/bore3.JPG']
+
   useEffect(() => {
     initializeAOS();
 
@@ -189,7 +191,7 @@ const Home = () => {
         </div>
         <div className="flex sm:flex-row flex-col justify-between items-center w-full">
           {/* Image Slider */}
-          <ImageSlider images={slider2} />
+          <ImageSlider images={slider3} />
           <div className="sm:w-[45%] sm:mt-0 mt-5" data-aos="fade-down">
             <p className="sm:text-2xl text-xl font-bold mb-3">
               Provision of Fully Solar-Powered Borehole for Ubahu Community in

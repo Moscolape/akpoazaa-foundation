@@ -21,31 +21,34 @@ const CommunityOutreach = () => {
           className="text-lg text-gray-700 font-Montserrat mb-10"
           data-aos="fade-up"
         >
-          Akpoazaa Foundation is committed to <b>sustainable community
-          development</b>, ensuring access to essential resources for rural
-          communities.
+          Akpoazaa Foundation is committed to{" "}
+          <b>sustainable community development</b>, ensuring access to essential
+          resources for rural communities.
         </p>
 
         {/* Borehole Project Details */}
-        <div
-          className=""
-          data-aos="fade-right"
-        >
+        <div className="" data-aos="fade-right">
+          <img
+            src="/bore2.JPG"
+            alt="borehole-pic"
+            className="h-[70vh] w-full mb-10"
+            data-aos="fade-in"
+          />
           <h2 className="text-2xl font-bold text-[#be202f] mb-4">
             Provision of Fully Solar-Powered Borehole for Ubahu Community in
             Okija
           </h2>
           <p className="text-gray-700">
             <strong>Dr. Frank Odinaka Igbojindu</strong>, an indigene of
-            <b> Ubahuagboba Ubahu community in Okija</b>, has dedicated <b>cash and
-            land resources</b> to ensure sustainable <b>clean water supply</b> for
-            his community.
+            <b> Ubahuagboba Ubahu community in Okija</b>, has dedicated{" "}
+            <b>cash and land resources</b> to ensure sustainable{" "}
+            <b>clean water supply</b> for his community.
           </p>
 
           <p className="text-gray-700 mt-4">
             The borehole, currently under development, is powered entirely by
-            <b> solar energy</b>, ensuring a <b>sustainable, uninterrupted</b> water
-            supply for the community.
+            <b> solar energy</b>, ensuring a <b>sustainable, uninterrupted</b>{" "}
+            water supply for the community.
           </p>
 
           <h3 className="text-lg font-semibold text-gray-800 mt-6">
