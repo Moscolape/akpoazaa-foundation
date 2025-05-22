@@ -51,12 +51,12 @@ const About = () => {
           <br />
           <p>
             After his years of teaching, he started building up foundations for
-            honourable individuals, most of whom were indigenes of his
-            hometown, Okija. He found out that several individuals were of high
-            social strata and they were willing to give back to the community
-            and all they needed was someone who they could trust. So when he
-            pitched his ideas to these individuals, they were glad to start it
-            up. Some of these foundations are;
+            honourable individuals, most of whom were indigenes of his hometown,
+            Okija. He found out that several individuals were of high social
+            strata and they were willing to give back to the community and all
+            they needed was someone who they could trust. So when he pitched his
+            ideas to these individuals, they were glad to start it up. Some of
+            these foundations are;
           </p>
           <ul className="list-disc ml-4">
             <li>Akuna Akuna empowerment scheme</li>
@@ -156,7 +156,7 @@ const About = () => {
               Engr. Chukwunenye Moses Chidiebere
             </h3>
             <p className="text-gray-600">
-              Web Developer, <b>Akpoazaa Foundation</b> | IT Manager, <b>Akpoazaa Group</b>
+              Software Engineer, <b>Akpoazaa Group</b>
             </p>
           </div>
         </div>
