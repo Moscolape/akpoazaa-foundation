@@ -1,5 +1,5 @@
 import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import initializeAOS from "../utils/aos-init";
 import { logo } from "../constants/assets";
@@ -87,15 +87,15 @@ export default function Footer() {
           </div>
           <div className="text-h6 flex mt-5">
             {socialMediaLinks.map((link, index) => (
-              <Link
-                to={link.href}
+              <a
+                href={link.href}
                 key={index}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mr-4 text-2xl text-[#be202f]"
               >
                 {link.icon}
-              </Link>
+              </a>
             ))}
           </div>
         </div>
@@ -105,13 +105,13 @@ export default function Footer() {
             <br />
             <div className="flex flex-col">
               {quickLinks.map((link, index) => (
-                <Link
-                  to={link.href}
+                <a
+                  href={link.href}
                   key={index}
                   className="mb-2 text-[1rem] hover:text-[#be202f] hover:scale-95"
                 >
                   {link.text}
-                </Link>
+                </a>
               ))}
             </div>
           </div>
@@ -122,13 +122,13 @@ export default function Footer() {
             <br />
             <div className="flex flex-col">
               {policyLinks.map((link, index) => (
-                <Link
-                  to={link.href}
+                <a
+                  href={link.href}
                   key={index}
                   className="mb-2 text-[1rem] hover:text-[#be202f] hover:scale-95"
                 >
                   {link.text}
-                </Link>
+                </a>
               ))}
             </div>
           </div>

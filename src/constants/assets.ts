@@ -1,5 +1,6 @@
 import notAvailableYet from "../assets/undraw_no-data_ig65.svg";
 import inProgress from "../assets/undraw_season-change_ohe6.svg";
+import working from "../assets/undraw_fingerprint_kdwq.svg";
 import logo from "../assets/Akpoazaa Foundation Logo.png";
 import found1 from "../assets/found1.jpeg";
 import found2 from "../assets/found2.jpeg";
@@ -86,5 +87,6 @@ export {
   partner3,
   CEO,
   paystack,
-  IT
+  IT,
+  working
 };

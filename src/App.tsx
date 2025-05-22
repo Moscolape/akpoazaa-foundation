@@ -1,10 +1,11 @@
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./index.css";
 import "./App.css";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import MobileWarning from "./components/mobile";
 
 const Home = lazy(() => import("./pages/main/home"));
 const About = lazy(() => import("./pages/main/about"));
@@ -13,8 +14,9 @@ const GetInvolved = lazy(() => import("./pages/main/get-involved"));
 const Donate = lazy(() => import("./pages/main/donate"));
 const Events = lazy(() => import("./pages/main/events"));
 const Blog = lazy(() => import("./pages/main/blog"));
-const Contact = lazy(() => import("./pages/main/contact"));
 const Gallery = lazy(() => import("./pages/main/gallery"));
+const Contact = lazy(() => import("./pages/main/contact"));
+const Login = lazy(() => import("./pages/main/login"));
 const FAQs = lazy(() => import("./pages/main/faqs"));
 
 const TermsAndConditions = lazy(
@@ -42,6 +44,21 @@ const VerifyEmail = lazy(() => import("./pages/subsidiary/verify-email"));
 const EmailVerified = lazy(() => import("./pages/subsidiary/email-verified"));
 
 function App() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <Suspense
       fallback={
@@ -59,6 +76,10 @@ function App() {
           <Route path="/programs" element={<Programs />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
+          <Route
+            path="/login"
+            element={isMobile ? <MobileWarning /> : <Login />}
+          />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/events" element={<Events />} />
           <Route path="/frequently-asked-questions" element={<FAQs />} />
