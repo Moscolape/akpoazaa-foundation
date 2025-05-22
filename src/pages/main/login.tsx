@@ -95,7 +95,7 @@ const Login = () => {
           <div className="sm:w-1/2 flex flex-col justify-center" data-aos="fade-up">
             <h1 className="sm:text-3xl text-xl font-bold">Login</h1>
             <p className="text-gray-400 mb-6 mt-2 sm:text-[1rem] text-sm">
-              Welcome, Admin!! Please enter your details!!!
+              Enter your username and password
             </p>
             {formMessage && (
               <div
@@ -122,7 +122,7 @@ const Login = () => {
                   {...register("username", {
                     required: "Username is required",
                   })}
-                  className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-[#b58825] placeholder:text-sm"
+                  className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-[#f69223] placeholder:text-sm"
                   placeholder="Enter your username"
                 />
                 {errors.username && (
@@ -143,7 +143,7 @@ const Login = () => {
                     {...register("password", {
                       required: "Password is required",
                     })}
-                    className="w-full px-4 py-2 border border-gray-300 rounded pr-10 focus:outline-none focus:ring focus:ring-[#b58825] placeholder:text-sm"
+                    className="w-full px-4 py-2 border border-gray-300 rounded pr-10 focus:outline-none focus:ring focus:ring-[#f69223] placeholder:text-sm"
                     placeholder="Enter your password"
                   />
                   <button
