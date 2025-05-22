@@ -158,9 +158,9 @@ const Home = () => {
             </Link>
           </div>
         </div>
-        <h1 className="sm:text-5xl text-2xl font-Urbanist font-bold text-center font-Montserrat">
+        {/* <h1 className="sm:text-5xl text-2xl font-Urbanist font-bold text-center font-Montserrat">
           Upcoming Projects
-        </h1>
+        </h1> */}
         <div className="flex sm:flex-row flex-col-reverse justify-between items-center w-full">
           <div className="sm:w-[45%] sm:mt-0 mt-5" data-aos="fade-down">
             <p className="sm:text-2xl text-xl font-bold mb-3">
