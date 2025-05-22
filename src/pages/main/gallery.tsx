@@ -2,10 +2,40 @@ import { useState, useEffect } from "react";
 import PageWrapper from "../../components/pageWrapper";
 import initializeAOS from "../../utils/aos-init";
 import {
-  found1, found2, found3, found4, found5, found6, found7, found8, found9, found10,
-  found11, found12, found13, found14, found15, found16, found17, found18, found20,
-  found21, found22, found23, found24, found25, found26, found27, found28, found29, found30,
-  found31, found32, boss, obi1, obi2
+  found1,
+  found2,
+  found3,
+  found4,
+  found5,
+  found6,
+  found7,
+  found8,
+  found9,
+  found10,
+  found11,
+  found12,
+  found13,
+  found14,
+  found15,
+  found16,
+  found17,
+  found18,
+  found20,
+  found21,
+  found22,
+  found23,
+  found24,
+  found25,
+  found26,
+  found27,
+  found28,
+  found29,
+  found30,
+  found31,
+  found32,
+  boss,
+  obi1,
+  obi2,
 } from "../../constants/assets";
 
 const Gallery = () => {
@@ -15,19 +45,65 @@ const Gallery = () => {
 
   const [activeTab, setActiveTab] = useState<"photos" | "videos">("photos");
 
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  const openModal = (imgSrc: string) => {
+    setSelectedImage(imgSrc);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+    setModalOpen(false);
+  };
+
   // Photo Gallery Images
   const photoGallery = [
-    found1, found2, found3, found4, found5, found6, found7, found8, found9, found10,
-    found11, found12, found13, found14, found15, found16, found17, found18, found20,
-    found21, found22, found23, found24, found25, found26, found27, found28, found29, found30,
-    found31, found32, boss, obi1, obi2
+    found1,
+    found2,
+    found3,
+    found4,
+    found5,
+    found6,
+    found7,
+    found8,
+    found9,
+    found10,
+    found11,
+    found12,
+    found13,
+    found14,
+    found15,
+    found16,
+    found17,
+    found18,
+    found20,
+    found21,
+    found22,
+    found23,
+    found24,
+    found25,
+    found26,
+    found27,
+    found28,
+    found29,
+    found30,
+    found31,
+    found32,
+    boss,
+    obi1,
+    obi2,
+    "/bore1.JPG",
+    "/bore2.JPG",
+    "/bore3.JPG",
   ];
 
   // Video Gallery Links (Replace with actual YouTube video links)
   const videoGallery = [
     "https://www.youtube.com/embed/ZMIDDgatTbg",
     "https://www.youtube.com/embed/oHqY_HPvaXM",
-    "https://www.youtube.com/embed/0NoiYS_5wr8"
+    "https://www.youtube.com/embed/0NoiYS_5wr8",
   ];
 
   return (
@@ -73,22 +149,28 @@ const Gallery = () => {
         <div className="mt-6">
           {activeTab === "photos" ? (
             <div
-              className="sm:grid flex flex-col sm:grid-cols-3 gap-4"
-              // data-aos="fade-up"
+              className="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-8"
+              data-aos="fade-up"
             >
-              {photoGallery.map((image, index) => (
-                <img
+              {photoGallery.map((imgSrc, index) => (
+                <div
                   key={index}
-                  src={image}
-                  alt={`Gallery ${index + 1}`}
-                  className="rounded-lg shadow-md hover:scale-105"
-                />
+                  className="w-full h-48 overflow-hidden rounded-lg shadow-md"
+                >
+                  <img
+                    src={imgSrc}
+                    loading="lazy"
+                    alt={`Gallery ${index + 1}`}
+                    onClick={() => openModal(imgSrc)}
+                    className="w-full h-full object-cover hover:scale-125 cursor-pointer transition-transform duration-300"
+                  />
+                </div>
               ))}
             </div>
           ) : (
             <div
               className="flex flex-col gap-4 items-center"
-              // data-aos="fade-up"
+              data-aos="fade-up"
             >
               {videoGallery.map((video, index) => (
                 <iframe
@@ -102,6 +184,30 @@ const Gallery = () => {
             </div>
           )}
         </div>
+
+        {modalOpen && selectedImage && (
+          <div
+            onClick={closeModal}
+            className="fixed inset-0 bg-[#000000da] bg-opacity-70 flex justify-center items-center z-50"
+          >
+            <div
+              className="max-w-4xl w-full mx-4"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                className="absolute top-4 right-4 text-white text-3xl font-bold z-10 cursor-pointer"
+                onClick={closeModal}
+              >
+                &times;
+              </button>
+              <img
+                src={selectedImage}
+                alt="Selected Tribute"
+                className="w-full max-h-[80vh] object-contain rounded-md animate-hop"
+              />
+            </div>
+          </div>
+        )}
       </div>
     </PageWrapper>
   );
