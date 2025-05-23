@@ -1,24 +1,15 @@
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-// import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react"; // Importing icons
-import { logo } from "../constants/assets";
 
-const links = [
-  { name: "About", href: "/about" },
-  { name: "Programs", href: "/programs" },
-  { name: "Get Involved", href: "/get-involved" },
-  { name: "Donate", href: "/donate" },
-  { name: "Events", href: "/events" },
-  { name: "Blog", href: "/blog" },
-  { name: "Gallery", href: "/gallery" },
-  { name: "Contact", href: "/contact" },
-  { name: "Login", href: "/login" },
-  { name: "FAQs", href: "/frequently-asked-questions" },
-];
+import { Menu, X } from "lucide-react";
+import { logo } from "../constants/assets";
+import { useAuth } from "../hooks/useAuth";
 
 export default function NavLinks() {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const { token, logout } = useAuth();
+
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [currentPath, setCurrentPath] = useState<string>(
     window.location.pathname
@@ -27,14 +18,15 @@ export default function NavLinks() {
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  useEffect(() => {
     const handleRouteChange = () => setCurrentPath(window.location.pathname);
+
+    window.addEventListener("resize", handleResize);
     window.addEventListener("popstate", handleRouteChange);
-    return () => window.removeEventListener("popstate", handleRouteChange);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("popstate", handleRouteChange);
+    };
   }, []);
 
   useEffect(() => {
@@ -49,7 +41,7 @@ export default function NavLinks() {
     };
 
     if (isMenuOpen) {
-      document.body.style.overflow = "hidden"; // Prevent scrolling when menu is open
+      document.body.style.overflow = "hidden";
       document.addEventListener("mousedown", handleOutsideClick);
     } else {
       document.body.style.overflow = "auto";
@@ -61,35 +53,67 @@ export default function NavLinks() {
     };
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    if (token) {
+      setIsAuthenticated(!!token);
+    }
+  }, [currentPath, token]);
+
   const logoSize = windowWidth < 640 ? 60 : 80;
 
+  const links = [
+    { name: "About", href: "/about" },
+    { name: "Programs", href: "/programs" },
+    { name: "Get Involved", href: "/get-involved" },
+    { name: "Donate", href: "/donate" },
+    { name: "Events", href: "/events" },
+    { name: "Blog", href: "/blog" },
+    { name: "Gallery", href: "/gallery" },
+    { name: "Contact", href: "/contact" },
+    { name: "FAQs", href: "/frequently-asked-questions" },
+  ];
+
+  const authLink = isAuthenticated
+    ? { name: "Logout", action: logout }
+    : { name: "Login", href: "/login" };
+
   return (
-    <nav className="flex justify-between items-center sm:px-4 pl-2 py-2 fixed w-full top-0 z-40" style={{ backgroundColor: "rgba(255, 255, 255, 0.5)", backdropFilter: "blur(30px)" }}
->
+    <nav
+      className="flex justify-between items-center sm:px-4 pl-2 py-2 fixed w-full top-0 z-40"
+      style={{
+        backgroundColor: "rgba(255, 255, 255, 0.5)",
+        backdropFilter: "blur(30px)",
+      }}
+    >
       <a href="/" className="logo">
-        <img
-          src={logo}
-          alt="My Logo"
-          width={logoSize}
-          height={logoSize}
-        />
+        <img src={logo} alt="My Logo" width={logoSize} height={logoSize} />
       </a>
 
       {/* Desktop Navigation */}
       <div className="hidden md:flex items-center space-x-4 font-Montserrat">
-        {links.map((link) => (
-          <a
-            key={link.name}
-            href={link.href}
-            className={`px-4 py-2 text-h6 hover:text-[#be202f] hover:scale-110 rounded-md ${
-              currentPath.includes(link.href)
-                ? "text-[#be202f] font-bold"
-                : "font-medium"
-            } ${link.name === "Donate" ? "hidden" : "inline-block"}`}
-          >
-            {link.name}
-          </a>
-        ))}
+        {[...links, authLink].map((link) =>
+          "action" in link ? (
+            <button
+              key={link.name}
+              onClick={link.action}
+              className="px-4 py-2 text-h6 text-[#be202f] font-medium hover:scale-110 rounded-md"
+            >
+              {link.name}
+            </button>
+          ) : (
+            <a
+              key={link.name}
+              href={link.href}
+              className={`px-4 py-2 text-h6 hover:text-[#be202f] hover:scale-110 rounded-md ${
+                currentPath.includes(link.href)
+                  ? "text-[#be202f] font-bold"
+                  : "font-medium"
+              } ${link.name === "Donate" ? "hidden" : "inline-block"}`}
+            >
+              {link.name}
+            </a>
+          )
+        )}
       </div>
 
       <motion.a
@@ -134,16 +158,29 @@ export default function NavLinks() {
         </button>
 
         <div className="space-y-6 text-center flex flex-col justify-center font-Urbanist">
-          {links.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-xl font-semibold hover:text-[#be9611] transition"
-              onClick={() => setMenuOpen(false)}
-            >
-              {link.name}
-            </a>
-          ))}
+          {[...links, authLink].map((link) =>
+            "action" in link ? (
+              <button
+                key={link.name}
+                onClick={() => {
+                  link.action?.();
+                  setMenuOpen(false);
+                }}
+                className="text-xl font-semibold hover:text-[#be9611] transition"
+              >
+                {link.name}
+              </button>
+            ) : (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-xl font-semibold hover:text-[#be9611] transition"
+                onClick={() => setMenuOpen(false)}
+              >
+                {link.name}
+              </a>
+            )
+          )}
         </div>
       </motion.div>
     </nav>

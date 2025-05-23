@@ -43,7 +43,6 @@ const Login = () => {
     try {
       setIsSubmitting(true);
 
-      //   const response = await fetch("http://localhost:8080/api/v1/auth/login", {
       const response = await fetch(
         "http://localhost:8000/api/auth/login",
         // "https://akpoazaa-foundation-backend.onrender.com/api/auth/login",
@@ -70,7 +69,7 @@ const Login = () => {
 
         // delay before navigation
         setTimeout(() => {
-          navigate("/");
+          navigate("/applicants");
         }, 2000);
 
         return;

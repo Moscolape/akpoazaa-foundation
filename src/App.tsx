@@ -6,6 +6,7 @@ import "./App.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import MobileWarning from "./components/mobile";
+import ProtectedRoute from "./components/protectedRoutes";
 
 const Home = lazy(() => import("./pages/main/home"));
 const About = lazy(() => import("./pages/main/about"));
@@ -31,6 +32,7 @@ const EducationalSupport = lazy(
 const CommunityOutreach = lazy(
   () => import("./pages/subsidiary/community-outreach")
 );
+const Applicants = lazy(() => import("./pages/subsidiary/applicants"));
 
 const Volunteer = lazy(() => import("./pages/subsidiary/volunteer"));
 const PartnerWithUs = lazy(() => import("./pages/subsidiary/partner"));
@@ -84,6 +86,10 @@ function App() {
           <Route path="/events" element={<Events />} />
           <Route path="/frequently-asked-questions" element={<FAQs />} />
           <Route path="/get-involved" element={<GetInvolved />} />
+
+          <Route element={<ProtectedRoute />}>
+            <Route path="/applicants" element={<Applicants />} />
+          </Route>
 
           <Route
             path="/terms-and-conditions"

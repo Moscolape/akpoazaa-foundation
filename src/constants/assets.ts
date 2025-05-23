@@ -42,6 +42,8 @@ import partner3 from "../assets/partner3.jpeg";
 import CEO from "../assets/CEO.png";
 import paystack from "../assets/paystack-logo.png";
 import IT from "../assets/IT-removebg-preview.png";
+import next from "../assets/arrow-right-double.svg";
+import prev from "../assets/arrow-left-double.svg";
 
 
 export {
@@ -88,5 +90,7 @@ export {
   CEO,
   paystack,
   IT,
-  working
+  working,
+  next,
+  prev
 };
