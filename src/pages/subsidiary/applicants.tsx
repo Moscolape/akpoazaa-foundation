@@ -83,7 +83,7 @@ const Applicant = () => {
 
   return (
     <PageWrapper>
-      <section className="relative pt-12 px-6 w-[90%] mx-auto font-Montserrat">
+      <section className="relative pt-12 px-6 w-[95%] mx-auto font-Montserrat">
         <h1
           className="text-[#be202f] text-2xl sm:text-4xl font-bold mb-6 text-center"
           data-aos="flip-down"
@@ -92,12 +92,13 @@ const Applicant = () => {
         </h1>{" "}
         <div className="">
           <div className="p-3 flex items-center bg-gray-300">
-            <span className="w-[20.5%] font-bold">Name</span>
-            <span className="w-[17%] font-bold">Phone Number</span>
-            <span className="w-[18.75%] font-bold">Category</span>
-            <span className="w-[18.75%] font-bold">Class</span>
+            <span className="w-[20%] font-bold">Name</span>
+            <span className="w-[13%] font-bold">Phone Number</span>
+            <span className="w-[15%] font-bold">Category</span>
+            <span className="w-[15%] font-bold">State of Residence</span>
+            <span className="w-[15%] font-bold">Class/Department</span>
             <span className="w-[15%] font-bold">Applied On</span>
-            <span className="w-[10%] font-bold">Actions</span>
+            <span className="w-[7%] font-bold">Actions</span>
           </div>
           {isLoading ? (
             <div className="flex items-center justify-center h-[20vh]">
@@ -119,22 +120,25 @@ const Applicant = () => {
                       } py-3 px-2 font-Montserrat group`}
                     >
                       <div className="flex items-center justify-between w-full cursor-pointer transition-all">
-                        <span className="w-[20.5%] text-sm text-[#272525] font-normal group-hover:scale-[1.02]">
+                        <span className="w-[20%] text-sm text-[#272525] font-normal group-hover:scale-[1.02]">
                           {applicant.fullName}
                         </span>
-                        <span className="w-[17%] text-sm font-normal group-hover:scale-[1.02]">
+                        <span className="w-[13%] text-sm font-normal group-hover:scale-[1.02]">
                           {applicant.guardianPhone}
                         </span>
-                        <span className="w-[18.75%] text-sm font-normal group-hover:scale-[1.02]">
+                        <span className="w-[15%] text-sm font-normal group-hover:scale-[1.02]">
                           {applicant.category}
                         </span>
-                        <span className="w-[18.75%] text-sm font-normal group-hover:scale-[1.02]">
+                        <span className="w-[15%] text-sm font-normal group-hover:scale-[1.02]">
+                          {applicant.stateResidence}
+                        </span>
+                        <span className="w-[15%] text-sm font-normal group-hover:scale-[1.02]">
                           {applicant.class}
                         </span>
                         <span className="w-[15%] text-sm font-normal group-hover:scale-[1.02]">
                           {moment(applicant.createdAt).format("LL")}
                         </span>
-                        <span className="w-[10%] text-sm text-[#be202f] font-normal">
+                        <span className="w-[7%] text-sm text-[#be202f] font-normal">
                           <button
                             onClick={() => openModal(applicant)}
                             className="cursor-pointer"
