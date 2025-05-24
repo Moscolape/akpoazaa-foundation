@@ -104,7 +104,7 @@ const Applicant = () => {
               <div className="w-8 h-8 border-4 border-[#be202f] border-t-transparent rounded-full animate-spin"></div>
             </div>
           ) : (
-            <div className="min-h-[50vh]" data-aos="fade-up">
+            <div className="min-h-[50vh]">
               {applicants.length === 0 ? (
                 <div className="flex items-center justify-center h-[20vh] text-gray-500 font-medium">
                   No applicants found.
